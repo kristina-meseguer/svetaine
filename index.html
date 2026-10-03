@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ar tau tinka Claude Code? | Kristina Meseguer</title>
+  <meta name="description" content="Penki klausimai ir per dvi minutes sužinosi, ar Claude Code tau tinka ir nuo ko pradėti.">
+  <meta name="theme-color" content="#1E1A17">
+  <meta property="og:title" content="Ar tau tinka Claude Code?">
+  <meta property="og:description" content="Penki klausimai, dvi minutės. Kristina Meseguer">
+  <meta property="og:image" content="img/pradzia-m.jpg">
+  <link rel="icon" href="img/zenklas-kremine.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/pradzia-m.jpg" media="(max-width: 899px)">
+  <link rel="preload" as="image" href="img/pradzia.jpg" media="(min-width: 900px)">
+  <link rel="stylesheet" href="stilius.css">
+</head>
+<body>
+
+  <!-- Pradžia -->
+  <header class="pradzia">
+    <picture class="pradzia__foto">
+      <source media="(min-width: 900px)" srcset="img/pradzia.jpg">
+      <img src="img/pradzia-m.jpg" alt="Kristina Meseguer juodu švarku sėdi ant kreminės sofos" width="800" height="1227">
+    </picture>
+    <img class="pradzia__zenklas" src="img/zenklas-kremine.svg" alt="Kristina Meseguer" width="44" height="53">
+    <div class="pradzia__tekstas">
+      <p class="rasytine">atsakyk per dvi minutes</p>
+      <h1>Ar tau tinka Claude Code?</h1>
+      <p class="pradzia__sub">Jeigu paprastai, tai programuotojas, kuris gyvena tavo kompiuteryje. Penki klausimai parodys, ar jis tau tinka.</p>
+      <a class="mygtukas" href="#testas" data-pradeti>Pradėti testą</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Testas ir rezultatas -->
+    <section id="testas" class="testas" aria-label="Testas">
+      <div class="testas__fonas" aria-hidden="true"></div>
+
+      <div class="klausimas" data-klausimas>
+        <div class="eiga">
+          <p class="eiga__tekstas" aria-live="polite"><span data-nr>1</span> iš 5</p>
+          <div class="eiga__linija"><span data-eiga></span></div>
+        </div>
+        <div class="klausimas__turinys" data-turinys>
+          <h2 class="klausimas__tekstas" tabindex="-1" data-tekstas></h2>
+          <p class="klausimas__pastaba" data-pastaba hidden></p>
+          <div class="atsakymai" data-atsakymai role="group"></div>
+        </div>
+        <button class="tekstinis" type="button" data-atgal hidden>Atgal</button>
+      </div>
+
+      <div class="rezultatas" data-rezultatas hidden>
+        <p class="rasytine">tavo rezultatas</p>
+        <h2 class="rezultatas__pavadinimas" tabindex="-1" data-rez-pavadinimas></h2>
+        <p class="rezultatas__balai" data-rez-balai></p>
+        <p class="rezultatas__aprasas" data-rez-aprasas></p>
+        <p class="rezultatas__pradzia" data-rez-pradzia hidden></p>
+
+        <div class="zinute" data-zinute hidden>
+          <p class="zinute__ivadas">Parašyk man Instagram žinutę su šituo tekstu. Atsakysiu pati ir pasakysiu, nuo ko pradėti būtent tau.</p>
+          <label class="zinute__etikete" for="veikla">Kuo dirbi?</label>
+          <input id="veikla" class="zinute__laukas" type="text" maxlength="60" autocomplete="organization-title" placeholder="pvz. grožio salonas, buhalterija" data-veikla>
+          <p class="zinute__perziura" data-perziura></p>
+          <a class="mygtukas" href="https://ig.me/m/kristina_meseguer" target="_blank" rel="noopener" data-rasyti>Rašyti Instagram</a>
+          <p class="zinute__busena" role="status" data-busena></p>
+          <p class="zinute__kaina">Mentorystė: 2 mėnesiai, 9 savaitės, 700 €. Artimiausią datą pasakysiu žinutėje.</p>
+        </div>
+
+        <div class="netinka" data-netinka hidden>
+          <a class="mygtukas mygtukas--konturas" href="https://www.instagram.com/kristina_meseguer/" target="_blank" rel="noopener">Sekti Instagram</a>
+        </div>
+
+        <button class="tekstinis" type="button" data-is-naujo>Pradėti iš naujo</button>
+      </div>
+    </section>
+
+    <!-- Apie Kristiną -->
+    <section class="apie" aria-labelledby="apie-antraste">
+      <img class="apie__foto" src="img/apie-m.jpg" srcset="img/apie-m.jpg 800w, img/apie.jpg 1400w" sizes="(min-width: 900px) 42vw, 100vw" alt="Kristina Meseguer nespalvotoje nuotraukoje" width="800" height="973" loading="lazy">
+      <div class="apie__tekstas">
+        <h2 id="apie-antraste">Pradėjau be jokio techninio išsilavinimo</h2>
+        <p>Esu Kristina Meseguer. Socialiniuose tinkluose mane seka virš 200 000 žmonių. Su Claude Code montuoju savo video ir kuriu gidus, o dabar to moku ir kitus.</p>
+        <p>Mokau lietuviškai ir atsakau asmeniškai. Dalyvių darbus parodau savo socialiniuose tinkluose.</p>
+      </div>
+    </section>
+
+    <!-- Mentorystė -->
+    <section class="mentoryste" aria-labelledby="mentoryste-antraste">
+      <h2 id="mentoryste-antraste">Mentorystė su Claude Code</h2>
+      <p class="mentoryste__trukme">2 mėnesiai, 9 savaitės, <span class="kaina">700 €</span></p>
+      <p class="mentoryste__ivadas">Programuoti mokėti nereikia. Claude darbus padaro, o tu išmoksti jam pasakyti, ko nori, ir patikrinti, ką jis padarė.</p>
+      <div class="mentoryste__stulpeliai">
+        <div>
+          <h3>Kas įeina</h3>
+          <ul>
+            <li>4 gyvi Zoom ir jų įrašai</li>
+            <li>apie 20 video pamokų</li>
+            <li>PDF gidai ir paruošti promptai</li>
+            <li>uždara grupė, kur atsakau aš pati</li>
+            <li>tavo rezultatais dalinuosi savo Instagrame</li>
+            <li>prieiga 12 mėnesių</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ko reikia</h3>
+          <ul>
+            <li>Mac arba Windows kompiuterio (planšetė netinka)</li>
+            <li>Claude Pro prenumeratos, apie 20 € per mėnesį, kurią perki pats</li>
+            <li>valandos per dieną</li>
+            <li>noro daryti, o ne tik žiūrėti</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kvietimas -->
+    <section class="kvietimas" aria-labelledby="kvietimas-antraste">
+      <img class="kvietimas__foto" src="img/kvietimas-m.jpg" srcset="img/kvietimas-m.jpg 800w, img/kvietimas.jpg 1400w" sizes="100vw" alt="Kristina su kepure sėdi automobilyje" width="800" height="1067" loading="lazy">
+      <div class="kvietimas__tekstas">
+        <p class="rasytine">nežinai, nuo ko pradėti?</p>
+        <h2 id="kvietimas-antraste">Penki klausimai, dvi minutės</h2>
+        <a class="mygtukas" href="#testas" data-pradeti>Pradėti testą</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="apacia">
+    <img src="img/logo-kremine.svg" alt="Kristina Meseguer" width="200" height="60" loading="lazy">
+    <nav class="apacia__nuorodos" aria-label="Nuorodos">
+      <a href="https://www.instagram.com/kristina_meseguer/" target="_blank" rel="noopener">@kristina_meseguer</a>
+      <a href="https://stan.store/kristina-meseguer" target="_blank" rel="noopener">stan.store/kristina-meseguer</a>
+    </nav>
+    <p class="apacia__teises">© 2026 Kristina Meseguer</p>
+  </footer>
+
+  <script src="testas.js"></script>
+</body>
+</html>
