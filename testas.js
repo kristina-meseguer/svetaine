@@ -103,6 +103,8 @@ function rodytiKlausima(i, kryptis = "pirmyn") {
     nr.textContent = i + 1;
     eiga.style.width = ((i + 1) / KLAUSIMAI.length) * 100 + "%";
     tekstas.textContent = k.tekstas;
+    tekstas.style.setProperty("--s", "60");
+    if (window.Judesys) Judesys.skaidyti(tekstas, "words");
     pastaba.hidden = !k.pastaba;
     pastaba.textContent = k.pastaba || "";
     atsakymai.setAttribute("aria-label", k.tekstas);
@@ -111,6 +113,7 @@ function rodytiKlausima(i, kryptis = "pirmyn") {
       const b = document.createElement("button");
       b.type = "button";
       b.className = "atsakymas";
+      b.style.setProperty("--i", j);
       b.setAttribute("aria-pressed", pasirinkta[i] === j ? "true" : "false");
       if (a.raide) {
         const r = document.createElement("span");
@@ -124,11 +127,10 @@ function rodytiKlausima(i, kryptis = "pirmyn") {
     });
     atgal.hidden = i === 0;
     turinys.classList.remove("iseina");
-    if (!mazasJudesys) {
-      turinys.classList.remove("ateina");
-      void turinys.offsetWidth;
-      turinys.classList.add("ateina");
-    }
+    turinys.classList.remove("ateina");
+    void turinys.offsetWidth;
+    turinys.classList.add("ateina");
+    if (window.Judesys) Judesys.parodyti(tekstas);
   };
   if (kryptis && !mazasJudesys && tekstas.textContent) {
     turinys.classList.add("iseina");
@@ -187,7 +189,11 @@ function baluZodis(n) {
 function rodytiRezultata() {
   galutinis = suskaiciuoti();
   const r = REZULTATAI[galutinis.tipas];
-  $("[data-rez-pavadinimas]").textContent = r.pavadinimas;
+  const pavadinimas = $("[data-rez-pavadinimas]");
+  pavadinimas.textContent = r.pavadinimas;
+  pavadinimas.style.setProperty("--d", "120");
+  pavadinimas.style.setProperty("--s", "34");
+  if (window.Judesys) Judesys.skaidyti(pavadinimas, "letters");
   $("[data-rez-balai]").textContent = galutinis.stop ? "" : baluZodis(galutinis.balai) + " iš " + MAX_BALU;
   $("[data-rez-balai]").hidden = !!galutinis.stop;
   $("[data-rez-aprasas]").textContent = galutinis.stop
@@ -211,11 +217,10 @@ function rodytiRezultata() {
   klausimoBlokas.hidden = true;
   rezultatas.hidden = false;
   sekcija.classList.add("rodomas-rezultatas");
-  if (!mazasJudesys) {
-    rezultatas.classList.remove("ateina");
-    void rezultatas.offsetWidth;
-    rezultatas.classList.add("ateina");
-  }
+  rezultatas.classList.remove("ateina");
+  void rezultatas.offsetWidth;
+  rezultatas.classList.add("ateina");
+  if (window.Judesys) Judesys.parodyti(pavadinimas);
   sekcija.scrollIntoView({ behavior: mazasJudesys ? "auto" : "smooth", block: "start" });
   $("[data-rez-pavadinimas]").focus({ preventScroll: true });
 }
