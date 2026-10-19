@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Claude Code mokymai | Kristina Meseguer</title>
+  <meta name="description" content="Ruošiu naujus Claude Code mokymus. Palik el. paštą: sąrašas pirmas sužinos viską ir gaus geriausią kainą.">
+  <meta name="theme-color" content="#1E1A17">
+  <meta property="og:title" content="Claude Code mokymai">
+  <meta property="og:description" content="Palik el. paštą: sąrašas pirmas sužinos viską ir gaus geriausią kainą.">
+  <meta property="og:image" content="https://svetaine-kristi3.vercel.app/img/kvietimas.jpg">
+  <meta property="og:url" content="https://svetaine-kristi3.vercel.app/mokymai/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../img/zenklas-kremine.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Spalvos ir šriftai pagal brand book v8 (~/.claude/STILIUS.md) */
+    :root {
+      --anglis: #1E1A17;
+      --espresso: #44382F;
+      --akmens: #87827C;
+      --pelenu: #C1BCB6;
+      --kremine: #EBE4DB;
+      --karamele: #C9A27E;
+      --bebas: "Bebas Neue", "Arial Narrow", sans-serif;
+      --rasytinis: "Great Vibes", cursive;
+      --inter: "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--anglis);
+      color: var(--kremine);
+      font: 400 17px/1.6 var(--inter);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--karamele); outline-offset: 3px; }
+
+    .puslapis {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .foto {
+      position: relative;
+      min-height: 62svh;
+      background: var(--anglis) url("../img/kvietimas.jpg") center 18% / cover no-repeat;
+    }
+    .foto::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(30,26,23,0.15) 0%, rgba(30,26,23,0.25) 45%, var(--anglis) 100%);
+    }
+    .logo {
+      position: absolute;
+      z-index: 1;
+      top: max(20px, env(safe-area-inset-top));
+      left: 20px;
+      width: 120px;
+      opacity: 0.95;
+    }
+    .tekstas {
+      position: relative;
+      z-index: 1;
+      margin-top: -22svh;
+      padding: 0 20px max(32px, env(safe-area-inset-bottom));
+      max-width: 560px;
+      width: 100%;
+      justify-self: center;
+    }
+    .rasytine {
+      font-family: var(--rasytinis);
+      color: var(--karamele);
+      font-size: clamp(34px, 9vw, 48px);
+      line-height: 1.1;
+    }
+    h1 {
+      font-family: var(--bebas);
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: clamp(58px, 17vw, 96px);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      margin: 2px 0 18px;
+    }
+    .ivadas { color: var(--kremine); margin-bottom: 12px; }
+    .ivadas + .ivadas { color: var(--pelenu); margin-bottom: 26px; }
+
+    form { display: grid; gap: 12px; }
+    label.sr, .sr {
+      position: absolute; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap;
+    }
+    input[type="email"] {
+      width: 100%;
+      font: 400 18px/1.2 var(--inter);
+      color: var(--kremine);
+      background: rgba(235,228,219,0.06);
+      border: 1px solid var(--akmens);
+      border-radius: 0;
+      padding: 17px 16px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input[type="email"]::placeholder { color: var(--akmens); }
+    input[type="email"]:focus { border-color: var(--karamele); outline: none; }
+    button {
+      font: 400 24px/1 var(--bebas);
+      letter-spacing: 0.04em;
+      color: var(--anglis);
+      background: var(--kremine);
+      border: 0;
+      padding: 18px 16px 16px;
+      cursor: pointer;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      transition: background 0.2s;
+    }
+    button:hover { background: var(--karamele); }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .klaida { color: var(--karamele); font-size: 15px; }
+    .smulkiai { color: var(--akmens); font-size: 13px; line-height: 1.5; }
+    .medus { position: absolute; left: -9999px; }
+
+    .aciu h2 {
+      font-family: var(--bebas);
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: clamp(44px, 12vw, 64px);
+      line-height: 0.95;
+      margin-bottom: 12px;
+    }
+    .aciu p { color: var(--pelenu); margin-bottom: 10px; }
+    .aciu a { color: var(--karamele); }
+
+    .apacia {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--espresso);
+      color: var(--akmens);
+      font-size: 13px;
+    }
+    .apacia a { color: var(--pelenu); text-decoration: none; }
+
+    @media (min-width: 900px) {
+      .puslapis { grid-template-columns: 1fr 1fr; align-items: center; }
+      .foto { min-height: 100vh; }
+      .foto::after { background: linear-gradient(to right, rgba(30,26,23,0) 60%, var(--anglis) 100%); }
+      .tekstas { margin-top: 0; padding: 48px 56px; justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="puslapis">
+    <div class="foto" role="img" aria-label="Kristina Meseguer">
+      <img class="logo" src="../img/logo-kremine.svg" alt="Kristina Meseguer">
+    </div>
+
+    <div class="tekstas">
+      <p class="rasytine">pirmi sužinos viską</p>
+      <h1>Claude Code mokymai</h1>
+
+      <div data-forma-blokas>
+        <p class="ivadas">Ruošiu naujus Claude Code mokymus grupėje. Išmoksi, kaip Claude gali daryti tavo darbus: rašyti tekstus, montuoti video, ruošti dokumentus ir automatizuoti tai, kas dabar suryja tavo vakarus.</p>
+        <p class="ivadas">Kai atidarysiu registraciją, sąrašas pirmas sužinos viską ir gaus geriausią kainą. Palik el. paštą ir nieko nepraleisi.</p>
+
+        <form data-forma novalidate>
+          <label class="sr" for="pastas">El. paštas</label>
+          <input id="pastas" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tavo@pastas.lt" required>
+          <input class="medus" name="svetaine" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" data-mygtukas>Įrašyk mane į sąrašą</button>
+          <p class="klaida" data-klaida role="alert" hidden></p>
+          <p class="smulkiai">Rašysiu tik apie mokymus. Atsisakyti galima vienu paspaudimu kiekvieno laiško apačioje.</p>
+        </form>
+      </div>
+
+      <div class="aciu" data-aciu hidden tabindex="-1">
+        <h2>Įrašiau tave į sąrašą</h2>
+        <p>Kai atidarysiu registraciją, laišką gausi tarp pirmųjų. Jei per kelias dienas nieko nematysi, pažiūrėk į „Reklamos“ arba „Šlamšto“ aplanką.</p>
+        <p>O kol kas mano kasdienybę ir Claude darbus rasi <a href="https://www.instagram.com/kristina_meseguer/">Instagrame</a>.</p>
+      </div>
+
+      <p class="apacia">Kristina Meseguer · <a href="https://www.instagram.com/kristina_meseguer/">@kristina_meseguer</a></p>
+    </div>
+  </main>
+
+  <script>
+    // El. paštas keliauja į Make (8017239) → MailerLite grupė „mokymai“, ta pati kaip iš Instagram ManyChat.
+    // Nuoroda su ?is=tiktok arba ?is=facebook parodo, iš kur žmogus atėjo.
+    const WEBHOOK = "https://hook.eu1.make.com/aift8w45ia9shweeprq22fx1t6r7y9up";
+    const SALTINIS = (new URLSearchParams(location.search).get("is") || "svetaine")
+      .toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20) || "svetaine";
+
+    const forma = document.querySelector("[data-forma]");
+    const laukas = document.getElementById("pastas");
+    const mygtukas = document.querySelector("[data-mygtukas]");
+    const klaida = document.querySelector("[data-klaida]");
+
+    function rodytiKlaida(tekstas) {
+      klaida.textContent = tekstas;
+      klaida.hidden = false;
+    }
+
+    forma.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      klaida.hidden = true;
+      if (forma.svetaine.value) return; // robotas užpildė paslėptą lauką
+      const pastas = laukas.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(pastas)) {
+        rodytiKlaida("Patikrink el. paštą, atrodo, kad jame trūksta raidės ar ženklo.");
+        laukas.focus();
+        return;
+      }
+      mygtukas.disabled = true;
+      mygtukas.textContent = "Įrašau…";
+      try {
+        await fetch(WEBHOOK, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ email: pastas, saltinis: SALTINIS }).toString()
+        });
+        document.querySelector("[data-forma-blokas]").hidden = true;
+        const aciu = document.querySelector("[data-aciu]");
+        aciu.hidden = false;
+        aciu.focus({ preventScroll: true });
+      } catch (err) {
+        mygtukas.disabled = false;
+        mygtukas.textContent = "Įrašyk mane į sąrašą";
+        rodytiKlaida("Nepavyko išsiųsti. Patikrink internetą ir spausk dar kartą.");
+      }
+    });
+  </script>
+</body>
+</html>
