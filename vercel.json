@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "claude-code-mokymai.vercel.app" }],
+      "destination": "/kursas/index.html"
+    }
+  ]
+}
