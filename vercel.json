@@ -1,9 +1,10 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
       "has": [{ "type": "host", "value": "claude-code-mokymai.vercel.app" }],
-      "destination": "/kursas/index.html"
+      "destination": "/kursas/",
+      "permanent": false
     }
   ]
 }
