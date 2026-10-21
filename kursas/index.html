@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Claude Code kursas | Kristina Meseguer</title>
+  <meta name="description" content="Du savaitgaliai gyvai: Claude Code montuoja, rašo, daro svetainę ir siunčia dovanas už tave. Sąrašas sužinos pirmas ir gaus geresnę kainą.">
+  <meta name="theme-color" content="#1E1A17">
+  <meta property="og:title" content="Claude Code dirba už tave">
+  <meta property="og:description" content="Palik el. paštą: sąrašas sužinos pirmas ir gaus geresnę kainą.">
+  <meta property="og:image" content="https://svetaine-kristi3.vercel.app/img/kvietimas.jpg">
+  <meta property="og:url" content="https://svetaine-kristi3.vercel.app/kursas/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../img/zenklas-kremine.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Brand book v8 (~/.claude/STILIUS.md), akcentas geltonas, kad nebūtų blanku. Maketas pagal yanny.space: raktažodis, antraštė, kortelė su el. paštu. */
+    :root {
+      --anglis: #1E1A17;
+      --espresso: #44382F;
+      --mocha: #645448;
+      --akmens: #A49E97;
+      --pelenu: #DCD6CE;
+      --kremine: #EBE4DB;
+      --karamele: #F6E46E; /* geltona iš subtitrų (STILIUS.md 10-17), ryškesnė už karamelę */
+      --bebas: "Bebas Neue", "Arial Narrow", sans-serif;
+      --rasytinis: "Great Vibes", cursive;
+      --inter: "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(120% 60% at 50% 0%, rgba(246,228,110,0.14) 0%, rgba(30,26,23,0) 60%),
+        var(--anglis);
+      color: var(--kremine);
+      font: 400 17px/1.6 var(--inter);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100svh;
+    }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--karamele); outline-offset: 3px; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .remas { max-width: 520px; margin: 0 auto; padding: max(18px, env(safe-area-inset-top)) 20px max(40px, env(safe-area-inset-bottom)); }
+
+    .virsus { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2px 12px; font-size: 14px; color: var(--pelenu); }
+    .virsus b { font-weight: 600; color: var(--kremine); }
+    .virsus .zyme { color: var(--karamele); font-weight: 600; }
+
+    /* Raktažodis klavišais, kaip Yanny „EDIT" */
+    .klavisai { display: flex; justify-content: center; gap: 6px; margin: 44px 0 26px; flex-wrap: nowrap; }
+    .klavisai span {
+      width: clamp(34px, 10vw, 46px); height: clamp(40px, 11.5vw, 52px);
+      display: grid; place-items: center;
+      font: 400 clamp(22px, 6.4vw, 30px)/1 var(--bebas);
+      color: var(--anglis);
+      background: linear-gradient(180deg, #F4EFE8 0%, var(--kremine) 100%);
+      border-radius: 9px;
+      box-shadow: 0 4px 0 var(--akmens), 0 10px 22px rgba(0,0,0,0.35);
+      animation: kyla 0.5s cubic-bezier(.2,.8,.2,1.2) both;
+    }
+    .klavisai span:nth-child(2) { animation-delay: .06s } .klavisai span:nth-child(3) { animation-delay: .12s }
+    .klavisai span:nth-child(4) { animation-delay: .18s } .klavisai span:nth-child(5) { animation-delay: .24s }
+    .klavisai span:nth-child(6) { animation-delay: .30s } .klavisai span:nth-child(7) { animation-delay: .36s }
+    @keyframes kyla { from { transform: translateY(14px); opacity: 0 } to { transform: none; opacity: 1 } }
+    @media (prefers-reduced-motion: reduce) { .klavisai span { animation: none } html { scroll-behavior: auto } }
+
+    h1 {
+      font: 400 clamp(54px, 15.5vw, 84px)/0.9 var(--bebas);
+      text-transform: uppercase; text-align: center; letter-spacing: 0.01em;
+    }
+    .rasytine {
+      display: block; text-align: center;
+      font: 400 clamp(38px, 11vw, 56px)/1.15 var(--rasytinis);
+      color: var(--karamele); margin-top: 2px;
+    }
+
+    .apie { display: flex; gap: 14px; align-items: flex-start; margin: 26px 0 28px; }
+    .apie img {
+      flex: none; width: 62px; height: 62px; border-radius: 50%;
+      object-fit: cover; object-position: 59% 15%;
+      border: 2px solid var(--karamele);
+    }
+    .apie p { color: var(--pelenu); font-size: 16px; }
+    .apie strong { color: var(--kremine); font-weight: 600; }
+    .pazadas {
+      margin: -6px 0 28px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--karamele);
+      background: rgba(246,228,110,0.07);
+      border-radius: 0 12px 12px 0;
+      font-size: 19px; line-height: 1.45; font-weight: 600;
+      color: var(--kremine);
+    }
+    .pazadas span { color: var(--karamele); white-space: nowrap; }
+    .nesulauzyti { white-space: nowrap; color: var(--kremine); font-weight: 600; }
+
+    /* Kortelė su el. paštu */
+    .kortele {
+      background: rgba(235,228,219,0.05);
+      border: 1px solid var(--espresso);
+      border-radius: 20px;
+      padding: 24px 20px 22px;
+      box-shadow: 0 0 0 6px rgba(246,228,110,0.06), 0 20px 50px rgba(0,0,0,0.35);
+      scroll-margin-top: 20px;
+    }
+    .kortele .etikete { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--karamele); }
+    .kortele h2 { font: 400 clamp(36px, 10vw, 46px)/1 var(--bebas); text-transform: uppercase; margin: 8px 0 10px; }
+    .kortele .ivadas { color: var(--pelenu); font-size: 16px; margin-bottom: 18px; }
+    .kaina { display: flex; align-items: baseline; gap: 10px; margin-bottom: 18px; }
+    .kaina .suma { font: 400 44px/1 var(--bebas); color: var(--kremine); }
+    .kaina .paaiskinimas { font-size: 14px; color: var(--pelenu); line-height: 1.4; }
+    .kaina .paaiskinimas b { color: var(--karamele); font-weight: 600; }
+
+    form { display: grid; gap: 12px; }
+    form label { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--akmens); }
+    input[type="email"] {
+      width: 100%;
+      font: 400 18px/1.2 var(--inter);
+      color: var(--kremine);
+      background: rgba(30,26,23,0.6);
+      border: 1px solid var(--mocha);
+      border-radius: 12px;
+      padding: 16px;
+      -webkit-appearance: none; appearance: none;
+    }
+    input[type="email"]::placeholder { color: var(--akmens); }
+    input[type="email"]:focus { border-color: var(--karamele); outline: none; }
+    .mygtukas {
+      display: flex; justify-content: center; align-items: center; gap: 10px;
+      font: 400 25px/1 var(--bebas); letter-spacing: 0.04em;
+      color: var(--anglis);
+      background: linear-gradient(180deg, #FAF0A0 0%, var(--karamele) 100%);
+      border: 0; border-radius: 12px;
+      padding: 18px 16px 16px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 10px 26px rgba(246,228,110,0.25);
+      transition: transform .15s, filter .2s;
+    }
+    .mygtukas:hover { filter: brightness(1.06); }
+    .mygtukas:active { transform: translateY(1px); }
+    .mygtukas:disabled { opacity: 0.6; cursor: wait; }
+    .klaida { color: var(--karamele); font-size: 15px; }
+    .smulkiai { color: var(--akmens); font-size: 13px; line-height: 1.5; text-align: center; }
+    .medus { position: absolute; left: -9999px; }
+
+    .aciu h2 { margin-top: 0; }
+    .aciu p { color: var(--pelenu); margin-bottom: 10px; font-size: 16px; }
+    .aciu a { color: var(--karamele); }
+
+    /* Kas viduje */
+    section.viduje { margin-top: 52px; }
+    section h3 { font: 400 clamp(34px, 9vw, 42px)/1 var(--bebas); text-transform: uppercase; margin-bottom: 6px; }
+    section .po { color: var(--pelenu); font-size: 15px; margin-bottom: 20px; }
+    .temos { list-style: none; display: grid; gap: 10px; }
+    .temos li {
+      display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start;
+      padding: 14px 14px 14px 12px;
+      border: 1px solid var(--espresso); border-radius: 14px;
+      background: rgba(68,56,47,0.18);
+      font-size: 16px; color: var(--pelenu);
+    }
+    .temos li b { color: var(--kremine); font-weight: 600; }
+    .temos .nr { font: 400 26px/1 var(--bebas); color: var(--karamele); padding-top: 2px; }
+
+    .bonusai-antraste { margin-top: 40px; }
+    .bonusai { list-style: none; display: grid; gap: 10px; }
+    .bonusai li {
+      position: relative; padding: 14px 14px 14px 44px;
+      border: 1px dashed var(--mocha); border-radius: 14px;
+      font-size: 16px; color: var(--pelenu);
+    }
+    .bonusai li::before {
+      content: "+"; position: absolute; left: 14px; top: 11px;
+      font: 400 28px/1 var(--bebas); color: var(--karamele);
+    }
+    .bonusai li b { color: var(--kremine); font-weight: 600; }
+
+    .faktai { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
+    .faktai div { padding: 14px; border-top: 1px solid var(--mocha); }
+    .faktai .platus { grid-column: 1 / -1; }
+    .faktai .sk { font: 400 34px/1 var(--bebas); color: var(--karamele); display: block; }
+    .faktai .ka { font-size: 14px; color: var(--pelenu); line-height: 1.4; }
+
+    .kam { margin-top: 40px; color: var(--pelenu); font-size: 16px; }
+    .kam p + p { margin-top: 10px; }
+    .kam b { color: var(--kremine); font-weight: 600; }
+
+    .pabaiga { margin-top: 40px; text-align: center; }
+    .pabaiga .rasytine { font-size: clamp(32px, 9vw, 44px); margin-bottom: 14px; }
+
+    .apacia { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--espresso); color: var(--akmens); font-size: 13px; text-align: center; }
+    .apacia a { color: var(--pelenu); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="remas">
+    <div class="virsus">
+      <span><b>Kristina</b> · @kristina_meseguer</span>
+      <span class="zyme">Ankstyva registracija</span>
+    </div>
+
+    <div class="klavisai" aria-hidden="true">
+      <span>M</span><span>O</span><span>K</span><span>Y</span><span>M</span><span>A</span><span>I</span>
+    </div>
+
+    <h1>Claude Code dirba už tave</h1>
+    <span class="rasytine">per du savaitgalius</span>
+
+    <div class="apie">
+      <img src="../img/kvietimas.jpg" alt="Kristina Meseguer" width="62" height="62">
+      <p>Esu Kristina, man 43 metai. Penkerius metus dirbau kalėjime, dešimt metų grožio srityje, esu baigusi teisės universitetą. Dabar esu influencerė <span class="nesulauzyti">su virš 200 000 sekėjų</span> ir studijuoju marketingą ir reklamą. Kodo niekada nerašiau, bet Claude Code už mane montuoja reels, rašo tekstus, kuria website ir siunčia dovanas sekėjams.</p>
+    </div>
+
+    <p class="pazadas">Per <span>keturias dienas</span> gyvai parodysiu, kaip tą patį susidėti sau.</p>
+
+    <div class="kortele" id="sarasas">
+      <div data-forma-blokas>
+        <p class="etikete">Užsiimk vietą</p>
+        <h2>Gauk geresnę kainą</h2>
+        <p class="ivadas">Kai atidarysiu registraciją, sąrašas sužinos pirmas, galės užsiregistruoti anksčiau už kitus ir gaus geresnę kainą.</p>
+
+        <form data-forma novalidate>
+          <label for="pastas">El. paštas</label>
+          <input id="pastas" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tavo@pastas.lt" required>
+          <input class="medus" name="svetaine" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="mygtukas" type="submit" data-mygtukas>Noriu geresnės kainos <span aria-hidden="true">→</span></button>
+          <p class="klaida" data-klaida role="alert" hidden></p>
+          <p class="smulkiai">Rašysiu tik apie kursą. Atsisakyti galima vienu paspaudimu kiekvieno laiško apačioje.</p>
+        </form>
+      </div>
+
+      <div class="aciu" data-aciu hidden tabindex="-1">
+        <p class="etikete">Tu sąraše</p>
+        <h2>Įrašiau tave</h2>
+        <p>Kai atidarysiu registraciją, laišką su geresne kaina gausi tarp pirmųjų. Jei per kelias dienas nieko nematysi, pažiūrėk į „Reklamos“ arba „Šlamšto“ aplanką.</p>
+        <p>O kol kas mano kasdienybę ir Claude darbus rasi <a href="https://www.instagram.com/kristina_meseguer/">Instagrame</a>.</p>
+      </div>
+    </div>
+
+    <section class="viduje">
+      <h3>Ką padarysim kartu</h3>
+      <p class="po">Vienuolika temų, nuo įdiegimo iki pardavimų. Lapkričio 28–29 ir gruodžio 5–6 susitinkam gyvai per Zoom po 4 valandas. Mažiau teorijos, daugiau darom kartu savo kompiuteryje.</p>
+      <ol class="temos">
+        <li><span class="nr">01</span><span><b>Įdiegimas.</b> Žingsnis po žingsnio susidedi Claude Code ir visas reikalingas programas.</span></li>
+        <li><span class="nr">02</span><span><b>Niša, bio ir pozicionavimas.</b> Claude padeda suprasti, kam tu kalbi, ir parašyti bio, po kurio žmonės seka.</span></li>
+        <li><span class="nr">03</span><span><b>Montažas.</b> Nufilmuoji telefonu, o Claude sukarpo, uždeda subtitrus, garsus, grafiką, memus ir muziką.</span></li>
+        <li><span class="nr">04</span><span><b>Storytelling.</b> Kaip papasakoti istoriją, kad ją žiūrėtų iki galo ir rašytų tau.</span></li>
+        <li><span class="nr">05</span><span><b>Reels.</b> Kabliukai, scenarijai ir ką filmuoti, kad video pasiektų naujus žmones.</span></li>
+        <li><span class="nr">06</span><span><b>Website.</b> Claude padaro tavo puslapį, o per GitHub jis atsiranda internete.</span></li>
+        <li><span class="nr">07</span><span><b>Instagram.</b> Prijungsim Claude prie tavo Instagram: jis matys visą tavo statistiką, ieškos viral video ir pasakys, kas suveikė.</span></li>
+        <li><span class="nr">08</span><span><b>Gmail.</b> Claude skaito tavo laiškus ir paruošia atsakymų juodraščius, o tu tik paspaudi „siųsti“.</span></li>
+        <li><span class="nr">09</span><span><b>ManyChat ir pardavimo piltuvėlis.</b> Žmogus parašo žodį komentare, gauna tavo dovaną ir žingsnis po žingsnio ateina iki pirkimo.</span></li>
+        <li><span class="nr">10</span><span><b>Jarvis.</b> Tavo asmeninis asistentas: ryte pasako, ką šiandien daryti, o paskui pats viską padaro su Claude Code.</span></li>
+        <li><span class="nr">11</span><span><b>Buhalterija.</b> Sąskaitos, ataskaitos ir išlaidos sutvarkytos per pusvalandį.</span></li>
+      </ol>
+
+      <h3 class="bonusai-antraste">Bonusai</h3>
+      <p class="po">Gausi kartu su kursu.</p>
+      <ul class="bonusai">
+        <li><b>200 kabliukų</b> reels pradžiai, kad žmonės nepraslinktų pirmose sekundėse.</li>
+        <li><b>Baimė filmuotis.</b> Kodėl stringi prieš kamerą? Psichologija ir kaip tai įveikti.</li>
+        <li><b>ChatGPT gidas.</b> Kaip jį nusistatyti, kad dirbtų tau kartu su Claude.</li>
+        <li><b>Žodynas.</b> Visi Claude Code ir AI žodžiai paprasta lietuvių kalba.</li>
+        <li><b>Ir dar daugiau.</b> Iki starto bonusų pridėsiu, apie juos sąrašas sužinos pirmas.</li>
+      </ul>
+
+      <div class="faktai">
+        <div><span class="sk">16 val.</span><span class="ka">gyvai su manimi per Zoom</span></div>
+        <div><span class="sk">1 mėn.</span><span class="ka">mano pagalba bendrame čate po kurso</span></div>
+        <div><span class="sk">PDF</span><span class="ka">gidai su promptais kiekvienai temai</span></div>
+        <div><span class="sk">Įrašai</span><span class="ka">visų dienų, jei ko nors nespėsi</span></div>
+        <div class="platus"><span class="sk">Atnaujinimai</span><span class="ka">visą mėnesį po kurso: kai Claude atsiranda kas nors nauja, gauni atnaujintą medžiagą</span></div>
+      </div>
+    </section>
+
+    <section class="kam">
+      <h3>Kam tinka</h3>
+      <p>Kursas tinka, jei <b>niekada nerašei kodo</b>, bet nori, kad turinį, tekstus ir dokumentus už tave darytų Claude. Pradedam nuo įdiegimo, todėl užtenka mokėti naudotis kompiuteriu.</p>
+      <p>Reikės <b>Mac arba Windows kompiuterio</b>. Telefonas netinka, nes telefone Claude nemato tavo failų.</p>
+      <p>Darbui reikės <b>Claude Pro prenumeratos</b>, ji kainuoja 22 € per mėnesį.</p>
+    </section>
+
+    <div class="pabaiga">
+      <span class="rasytine">vieta sąraše nieko nekainuoja</span>
+      <a class="mygtukas" href="#sarasas" data-i-forma>Įrašyk mane į sąrašą</a>
+    </div>
+
+    <p class="apacia">Kristina Meseguer · <a href="https://www.instagram.com/kristina_meseguer/">@kristina_meseguer</a></p>
+  </main>
+
+  <script>
+    // Tas pats kelias kaip /mokymai/: Make 8017239 (webhook 3923309) → MailerLite grupė „mokymai“.
+    // Instagram bio nuoroda be parametrų = „instagram“, kitur galima ?is=tiktok, ?is=story ir pan.
+    const WEBHOOK = "https://hook.eu1.make.com/aift8w45ia9shweeprq22fx1t6r7y9up";
+    const SALTINIS = (new URLSearchParams(location.search).get("is") || "instagram")
+      .toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20) || "instagram";
+
+    const forma = document.querySelector("[data-forma]");
+    const laukas = document.getElementById("pastas");
+    const mygtukas = document.querySelector("[data-mygtukas]");
+    const klaida = document.querySelector("[data-klaida]");
+    const MYGTUKO_TEKSTAS = mygtukas.innerHTML;
+
+    function rodytiKlaida(tekstas) {
+      klaida.textContent = tekstas;
+      klaida.hidden = false;
+    }
+
+    // Apatinis mygtukas nuveda į kortelę ir iškart įjungia langelį
+    document.querySelector("[data-i-forma]").addEventListener("click", () => {
+      setTimeout(() => { if (!forma.closest("[hidden]")) laukas.focus({ preventScroll: true }); }, 450);
+    });
+
+    forma.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      klaida.hidden = true;
+      if (forma.svetaine.value) return; // robotas užpildė paslėptą lauką
+      const pastas = laukas.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(pastas)) {
+        rodytiKlaida("Patikrink el. paštą, atrodo, kad jame trūksta raidės ar ženklo.");
+        laukas.focus();
+        return;
+      }
+      mygtukas.disabled = true;
+      mygtukas.textContent = "Įrašau…";
+      try {
+        await fetch(WEBHOOK, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ email: pastas, saltinis: SALTINIS }).toString()
+        });
+        document.querySelector("[data-forma-blokas]").hidden = true;
+        const aciu = document.querySelector("[data-aciu]");
+        aciu.hidden = false;
+        aciu.focus({ preventScroll: true });
+        document.querySelector(".pabaiga").hidden = true;
+      } catch (err) {
+        mygtukas.disabled = false;
+        mygtukas.innerHTML = MYGTUKO_TEKSTAS;
+        rodytiKlaida("Nepavyko išsiųsti. Patikrink internetą ir spausk dar kartą.");
+      }
+    });
+  </script>
+</body>
+</html>
