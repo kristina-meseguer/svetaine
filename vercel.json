@@ -5,6 +5,12 @@
       "has": [{ "type": "host", "value": "claude-code-mokymai.vercel.app" }],
       "destination": "/kursas/",
       "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "xclusiv-edits.vercel.app" }],
+      "destination": "/edits/",
+      "permanent": false
     }
   ]
 }
