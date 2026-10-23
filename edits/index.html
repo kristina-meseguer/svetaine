@@ -520,10 +520,9 @@
       if (issaugoti) { try { localStorage.setItem("edits-kalba", k); } catch (e) {} }
     }
 
-    // ⚠️ Laikinai tas pats Make webhook kaip /kursas/ (scenarijus 8017239 → MailerLite grupė „mokymai“).
-    // Prieš paleidžiant reikia atskiros MailerLite grupės „edits“ (geriausia dviejų: LT ir EN), kitaip šie žmonės susimaišys su intensyvo sąrašu.
-    // Kol kas atskiriam pagal laukelius saltinis („edits-…“) ir kalba („lt“ / „en“).
-    const WEBHOOK = "https://hook.eu1.make.com/aift8w45ia9shweeprq22fx1t6r7y9up";
+    // Make scenarijus 8133241 → MailerLite: kalba „en“ = grupė „EDITS EN (waitlist)“, kitaip „EDITS LT (laukiantieji)“.
+    // Tas pats webhook ir ManyChat EDITS automatikai.
+    const WEBHOOK = "https://hook.eu1.make.com/8z2bx7fddxeqq7jpuh3844r3oro46hrc";
     // Iš kur atėjo: pirma ?is= (trumposios nuorodos /ig /fb /tt /tg ją uždeda), paskui programos naršyklė, paskui ankstesnis puslapis.
     function atpazintiSaltini() {
       const zyme = (new URLSearchParams(location.search).get("is") || "")
