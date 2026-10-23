@@ -524,8 +524,24 @@
     // Prieš paleidžiant reikia atskiros MailerLite grupės „edits“ (geriausia dviejų: LT ir EN), kitaip šie žmonės susimaišys su intensyvo sąrašu.
     // Kol kas atskiriam pagal laukelius saltinis („edits-…“) ir kalba („lt“ / „en“).
     const WEBHOOK = "https://hook.eu1.make.com/aift8w45ia9shweeprq22fx1t6r7y9up";
-    const SALTINIS = "edits-" + ((new URLSearchParams(location.search).get("is") || "instagram")
-      .toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 14) || "instagram");
+    // Iš kur atėjo: pirma ?is= (trumposios nuorodos /ig /fb /tt /tg ją uždeda), paskui programos naršyklė, paskui ankstesnis puslapis.
+    function atpazintiSaltini() {
+      const zyme = (new URLSearchParams(location.search).get("is") || "")
+        .toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 14);
+      if (zyme) return zyme;
+      const ua = navigator.userAgent || "";
+      if (/Instagram/i.test(ua)) return "instagram";
+      if (/FBAN|FBAV|FB_IAB|FBIOS|Messenger/i.test(ua)) return "facebook";
+      if (/musical_ly|TikTok|BytedanceWebview|ByteLocale/i.test(ua)) return "tiktok";
+      if (/Telegram/i.test(ua)) return "telegram";
+      const is = document.referrer || "";
+      if (/instagram\./i.test(is)) return "instagram";
+      if (/facebook\.|fb\.com|messenger\./i.test(is)) return "facebook";
+      if (/tiktok\./i.test(is)) return "tiktok";
+      if (/t\.me|telegram\./i.test(is)) return "telegram";
+      return "kita";
+    }
+    const SALTINIS = "edits-" + atpazintiSaltini();
 
     const forma = document.querySelector("[data-forma]");
     const laukas = document.getElementById("pastas");
