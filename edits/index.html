@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Xclusiv Edits | Laukiančiųjų sąrašas</title>
+  <meta name="description" content="Montažo programa kompiuteriui ir vaizdo kursas. Nufilmuotas telefonu video per kelias minutes tampa Reels, TikTok, Shorts ir LinkedIn įrašu. Sąrašas sužinos pirmas ir gaus mažiausią kainą.">
+  <meta name="theme-color" content="#14203A">
+  <meta property="og:title" content="Xclusiv Edits: montažas nebeužims tau viso vakaro">
+  <meta property="og:description" content="Įrašyk el. paštą: sąrašas sužinos apie atidarymą pirmas ir gaus mažiausią kainą.">
+  <meta property="og:url" content="https://svetaine-kristi3.vercel.app/edits/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="img/zenklas-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/zenklas-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Spalvos paimtos iš pačios Xclusiv programos (/Applications/Xclusiv.app, CSS kintamieji): naktinė mėlyna + auksas + balta. */
+    :root {
+      --naktis: #0C1220;        /* --well tamsiame režime */
+      --navy: #14203A;          /* --topbar */
+      --navy-2: #1E2C4B;        /* --chrome-raised */
+      --navy-linija: #2A3754;   /* --chrome-line */
+      --rasalas: #1E2A44;       /* --text šviesiame režime */
+      --pilka: #60646F;         /* --muted */
+      --blyski: #A9B0C2;        /* --chrome-muted */
+      --auksas-virsus: #D6B475; /* --gold-top */
+      --auksas: #C9A25F;        /* --gold-bottom */
+      --auksas-sviesus: #E2C48C;/* --chrome-accent */
+      --auksas-tekstas: #7C5E27;/* --accent-text, auksas ant baltos su geru kontrastu */
+      --balta: #FFFFFF;
+      --popierius: #FBFAF7;     /* --panel */
+      --kremas: #F1ECE1;        /* --chrome-text */
+      --linija: #DDD6C8;        /* --line */
+      --serifas: "Libre Caslon Display", Georgia, "Times New Roman", serif;
+      --sans: "Inter", system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      background: var(--balta);
+      color: var(--rasalas);
+      font: 400 17px/1.6 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--auksas); outline-offset: 3px; }
+    .remas { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Viršus (naktinė mėlyna) ---------- */
+    .virsus {
+      background:
+        radial-gradient(90% 70% at 85% 10%, rgba(214,180,117,0.16) 0%, rgba(20,32,58,0) 60%),
+        linear-gradient(180deg, var(--navy) 0%, var(--naktis) 100%);
+      color: var(--kremas);
+      padding-bottom: 64px;
+    }
+    /* Balta juosta su logotipu: logotipas su tamsiai mėlynomis raidėmis, ant navy jo nesimatytų */
+    .logo-juosta { background: var(--balta); border-bottom: 1px solid var(--linija); }
+    .juosta {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding-top: max(12px, env(safe-area-inset-top)); padding-bottom: 12px;
+    }
+    .zenklas { display: block; flex: none; }
+    .zenklas img { display: block; height: 48px; width: auto; }
+    .juosta a.i-sarasa {
+      font-size: 14px; font-weight: 600; color: var(--auksas-tekstas);
+      text-decoration: none; white-space: nowrap;
+    }
+
+    /* Kalbos jungiklis LT | EN */
+    .juosta-desine { display: flex; align-items: center; gap: 16px; }
+    .kalbos { display: inline-flex; padding: 3px; border: 1px solid var(--linija); border-radius: 999px; background: var(--popierius); }
+    .kalbos button {
+      font: 600 13px/1 var(--sans); letter-spacing: 0.04em;
+      color: var(--pilka); background: none; border: 0;
+      min-width: 44px; min-height: 32px; padding: 0 12px; border-radius: 999px; cursor: pointer;
+    }
+    .kalbos button[aria-pressed="true"] { color: var(--navy); background: linear-gradient(180deg, var(--auksas-virsus) 0%, var(--auksas) 100%); }
+    @media (max-width: 520px) { .juosta a.i-sarasa { display: none; } }
+
+    .herojus { display: grid; gap: 40px; padding-top: 44px; }
+    h1 {
+      font: 400 clamp(40px, 10.5vw, 66px)/1.04 var(--serifas);
+      letter-spacing: -0.01em;
+      max-width: 12ch;
+    }
+    .ivadas { margin-top: 20px; color: var(--blyski); font-size: 18px; max-width: 46ch; }
+    .ivadas strong { color: var(--kremas); font-weight: 600; }
+
+    /* Forma */
+    .forma { margin-top: 28px; max-width: 460px; scroll-margin-top: 24px; }
+    .forma p.kodel { color: var(--kremas); font-size: 16px; margin-bottom: 14px; }
+    form { display: grid; gap: 10px; }
+    form label { font-size: 14px; font-weight: 600; color: var(--blyski); }
+    input[type="email"] {
+      width: 100%;
+      font: 400 18px/1.2 var(--sans);
+      color: var(--kremas);
+      background: rgba(12,18,32,0.7);
+      border: 1px solid var(--navy-linija);
+      border-radius: 10px;
+      padding: 16px;
+      -webkit-appearance: none; appearance: none;
+    }
+    input[type="email"]::placeholder { color: #6E7790; }
+    input[type="email"]:focus { border-color: var(--auksas); outline: none; }
+    .mygtukas {
+      display: inline-flex; justify-content: center; align-items: center;
+      font: 600 17px/1 var(--sans);
+      color: var(--navy);
+      background: linear-gradient(180deg, var(--auksas-virsus) 0%, var(--auksas) 100%);
+      border: 0; border-radius: 10px;
+      padding: 18px 22px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 24px rgba(201,162,95,0.22);
+      transition: filter .2s, transform .15s;
+    }
+    .mygtukas:hover { filter: brightness(1.06); }
+    .mygtukas:active { transform: translateY(1px); }
+    .mygtukas:disabled { opacity: 0.6; cursor: wait; }
+    .klaida { color: var(--auksas-sviesus); font-size: 15px; }
+    .smulkiai { color: #8891A6; font-size: 13px; line-height: 1.5; }
+    .medus { position: absolute; left: -9999px; }
+    .aciu { padding: 20px; border: 1px solid var(--auksas); border-radius: 12px; background: rgba(214,180,117,0.07); }
+    .aciu h2 { font: 400 30px/1.1 var(--serifas); color: var(--kremas); margin-bottom: 8px; }
+    .aciu p { color: var(--blyski); font-size: 16px; }
+    .aciu p + p { margin-top: 8px; }
+    .aciu a { color: var(--auksas-sviesus); }
+
+    /* Programos lango maketas: vienintelis „garsus“ elementas puslapyje */
+    .langas {
+      background: var(--navy-2);
+      border: 1px solid var(--navy-linija);
+      border-radius: 14px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.45), 0 0 0 1px rgba(214,180,117,0.08);
+      overflow: hidden;
+      max-width: 520px;
+    }
+    .langas-virsus {
+      display: flex; align-items: center; gap: 7px;
+      padding: 10px 14px;
+      background: var(--naktis);
+      border-bottom: 1px solid var(--navy-linija);
+      font-size: 12px; color: var(--blyski);
+    }
+    .langas-virsus i { width: 10px; height: 10px; border-radius: 50%; background: var(--navy-linija); }
+    .langas-virsus span { margin-left: 8px; }
+    .langas-turinys { display: grid; grid-template-columns: 116px 1fr; gap: 16px; padding: 16px; }
+    .kadras {
+      position: relative; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden;
+      background:
+        radial-gradient(60% 34% at 50% 34%, #3D4B6C 0%, rgba(61,75,108,0) 100%),
+        linear-gradient(180deg, #24304D 0%, #101828 100%);
+    }
+    .kadras::before { /* žmogaus siluetas */
+      content: ""; position: absolute; left: 50%; top: 22%; width: 44%; aspect-ratio: 1;
+      transform: translateX(-50%); border-radius: 50%; background: #3A4767;
+      box-shadow: 0 64px 0 22px #2F3B59;
+    }
+    .titras {
+      position: absolute; left: 6px; right: 6px; bottom: 26%;
+      text-align: center; font: 700 11px/1.2 var(--sans); color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+    .titras b { color: #F6E46E; font-weight: 700; }
+    .sonas { display: grid; gap: 12px; align-content: start; min-width: 0; }
+    .sonas .pav { font-size: 11px; color: var(--blyski); }
+    .zodziai { display: flex; flex-wrap: wrap; gap: 5px; font-size: 13px; line-height: 1; }
+    .zodziai span { padding: 5px 7px; border-radius: 6px; background: rgba(241,236,225,0.07); color: var(--kremas); }
+    .zodziai .iskirpti { color: var(--auksas-sviesus); background: rgba(214,180,117,0.12); }
+    .laiko-juosta { position: relative; height: 34px; border-radius: 6px; background: var(--naktis); overflow: hidden; }
+    .laiko-juosta span { position: absolute; top: 6px; bottom: 6px; border-radius: 3px; background: #3D5F80; }
+    .laiko-juosta span.k { background: rgba(214,180,117,0.55); }
+    .auto {
+      justify-self: start;
+      font: 600 13px/1 var(--sans); color: var(--navy);
+      padding: 10px 14px; border-radius: 8px;
+      background: linear-gradient(180deg, var(--auksas-virsus) 0%, var(--auksas) 100%);
+    }
+
+    /* Vienas orkestruotas momentas: „Auto montažas“ iškerpa pauzes ir „ėėė“, tada atsiranda subtitras */
+    @media (prefers-reduced-motion: no-preference) {
+      .auto { animation: paspaudimas 0.4s ease 0.9s both; }
+      .zodziai .iskirpti { animation: iskerpa 0.5s ease 1.25s both; }
+      .laiko-juosta span.k { animation: dingsta 0.5s ease 1.25s both; }
+      .titras { animation: atsiranda 0.6s ease 1.8s both; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    /* Be animacijos galutinė būsena ta pati: iškirpti žodžiai perbraukti */
+    .zodziai .iskirpti { text-decoration: line-through; text-decoration-color: var(--auksas); opacity: 0.55; }
+    .laiko-juosta span.k { opacity: 0.25; }
+    @keyframes paspaudimas { 0% { transform: none } 50% { transform: scale(0.94); filter: brightness(1.15) } 100% { transform: none } }
+    @keyframes iskerpa {
+      from { text-decoration-color: transparent; opacity: 1 }
+      to { text-decoration-color: var(--auksas); opacity: 0.55 }
+    }
+    @keyframes dingsta { from { opacity: 1 } to { opacity: 0.25 } }
+    @keyframes atsiranda { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+
+    /* ---------- Baltos dalys ---------- */
+    section { padding: 72px 0 0; }
+    h2.skyrius { font: 400 clamp(34px, 8vw, 50px)/1.05 var(--serifas); letter-spacing: -0.005em; max-width: 20ch; }
+    .po { margin-top: 12px; color: var(--pilka); max-width: 58ch; }
+
+    .palyginimas { display: grid; gap: 14px; margin-top: 28px; }
+    .palyginimas > div { padding: 22px; border-radius: 12px; }
+    .palyginimas .rankomis { background: var(--popierius); border: 1px solid var(--linija); }
+    .palyginimas .su { background: var(--navy); color: var(--kremas); }
+    .palyginimas h3 { font: 400 24px/1.15 var(--serifas); margin-bottom: 10px; }
+    .palyginimas .su h3 { color: var(--auksas-virsus); }
+    .palyginimas p { font-size: 16px; }
+    .palyginimas .rankomis p { color: var(--pilka); }
+    .palyginimas .su p { color: var(--blyski); }
+    .palyginimas .laikas { display: block; margin-top: 14px; font: 400 28px/1.1 var(--serifas); }
+    .palyginimas .rankomis .laikas { color: var(--rasalas); }
+    .palyginimas .su .laikas { color: var(--kremas); }
+
+    /* Žingsniai tikrai yra seka, todėl numeruoti */
+    .zingsniai { list-style: none; margin-top: 30px; border-top: 1px solid var(--linija); }
+    .zingsniai li {
+      display: grid; grid-template-columns: 52px 1fr; gap: 14px;
+      padding: 20px 0; border-bottom: 1px solid var(--linija);
+    }
+    .zingsniai .nr { font: 400 34px/1 var(--serifas); color: var(--auksas-tekstas); }
+    .zingsniai b { display: block; font-weight: 600; margin-bottom: 4px; }
+    .zingsniai p { color: var(--pilka); font-size: 16px; max-width: 60ch; }
+
+    .viduje { display: grid; gap: 0; margin-top: 30px; }
+    .viduje div { padding: 18px 0; border-top: 1px solid var(--linija); display: grid; gap: 4px; }
+    .viduje dt { font-weight: 600; }
+    .viduje dd { color: var(--pilka); font-size: 16px; }
+    .vienas-kartas {
+      margin-top: 28px; padding: 18px 20px;
+      border-left: 3px solid var(--auksas);
+      background: var(--popierius);
+      font-size: 17px;
+    }
+
+    .reikia { display: grid; gap: 22px; margin-top: 30px; }
+    .reikia h3 { font: 400 24px/1.15 var(--serifas); margin-bottom: 6px; }
+    .reikia p { color: var(--pilka); font-size: 16px; }
+
+    /* ---------- Apačia ---------- */
+    .pabaiga {
+      margin-top: 80px;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--naktis) 100%);
+      color: var(--kremas);
+      padding: 64px 0 max(40px, env(safe-area-inset-bottom));
+      text-align: center;
+    }
+    .pabaiga h2 { font: 400 clamp(34px, 8vw, 52px)/1.05 var(--serifas); max-width: 18ch; margin: 0 auto; }
+    .pabaiga p { color: var(--blyski); margin: 14px auto 26px; max-width: 44ch; }
+    .parase { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--navy-linija); font-size: 13px; color: #8891A6; }
+    .parase a { color: var(--blyski); text-decoration: none; }
+
+    /* ---------- Platesnis ekranas ---------- */
+    @media (min-width: 900px) {
+      .herojus { grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 56px; padding-top: 72px; }
+      .zenklas img { height: 54px; }
+      .virsus { padding-bottom: 96px; }
+      .langas { justify-self: end; width: 100%; }
+      .langas-turinys { grid-template-columns: 150px 1fr; }
+      .titras { font-size: 13px; }
+      section { padding-top: 104px; }
+      .palyginimas { grid-template-columns: 1fr 1fr; }
+      .viduje { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+      .reikia { grid-template-columns: repeat(2, 1fr); column-gap: 48px; row-gap: 30px; }
+    }
+    @media (max-width: 380px) {
+      .langas-turinys { grid-template-columns: 96px 1fr; gap: 12px; padding: 12px; }
+      .zodziai { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-juosta">
+      <div class="remas juosta">
+        <a class="zenklas" href="#"><img src="img/logo.png" alt="Xclusiv Edits" width="960" height="225"></a>
+        <div class="juosta-desine">
+          <a class="i-sarasa" href="#sarasas" data-t="nav">Laukiančiųjų sąrašas</a>
+          <div class="kalbos" role="group" aria-label="Kalba" data-kalbos>
+            <button type="button" data-kalba="lt" aria-pressed="true" lang="lt">LT</button>
+            <button type="button" data-kalba="en" aria-pressed="false" lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <header class="virsus">
+    <div class="remas">
+      <div class="herojus">
+        <div>
+          <h1 data-t="h1">Montažas nebeužims tau viso vakaro</h1>
+          <p class="ivadas" data-t="ivadas"><strong>Xclusiv Edits</strong> yra montažo programa tavo kompiuteriui ir vaizdo kursas, kuris išmoko ja naudotis. Video, kurį nufilmavai telefonu, per kelias minutes tampa gražiu Reels, TikTok, Shorts ar LinkedIn įrašu.</p>
+
+          <div class="forma" id="sarasas">
+            <div data-forma-blokas>
+              <p class="kodel" data-t="kodel">Sąraše esantys žmonės pirmieji sužinos apie atidarymą ir gaus mažiausią kainą.</p>
+              <form data-forma novalidate>
+                <label for="pastas" data-t="label">El. paštas</label>
+                <input id="pastas" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tavo@pastas.lt" required>
+                <input class="medus" name="svetaine" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button class="mygtukas" type="submit" data-mygtukas data-t="cta">Įrašyti mane į sąrašą</button>
+                <p class="klaida" data-klaida role="alert" hidden></p>
+                <p class="smulkiai" data-t="smulkiai">Rašysiu tik apie Xclusiv Edits. Atsisakyti galima vienu paspaudimu kiekvieno laiško apačioje.</p>
+              </form>
+            </div>
+            <div class="aciu" data-aciu hidden tabindex="-1">
+              <h2 data-t="aciu-h">Tu sąraše</h2>
+              <p data-t="aciu-1">Kai atidarysim, laišką su mažiausia kaina gausi tarp pirmųjų. Jei per kelias dienas nieko nematysi, pažiūrėk į „Reklamos“ arba „Šlamšto“ aplanką.</p>
+              <p data-t="aciu-2">O kol kas mano kasdienybę rasi <a href="https://www.instagram.com/kristina_meseguer/">Instagrame</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="langas" aria-hidden="true">
+          <div class="langas-virsus"><i></i><i></i><i></i><span>Xclusiv Edits</span></div>
+          <div class="langas-turinys">
+            <div class="kadras"><p class="titras" data-t="m-titras">sumontuota per <b>kelias minutes</b></p></div>
+            <div class="sonas">
+              <p class="pav" data-t="m-zodziai">Tavo žodžiai</p>
+              <p class="zodziai" data-t="m-juosta-zodziai"><span>Šiandien</span><span class="iskirpti">ėėė</span><span>parodysiu</span><span class="iskirpti">… pauzė</span><span>kaip</span><span class="iskirpti">aš</span><span>aš</span><span>montuoju</span><span class="iskirpti">nu</span><span>video</span></p>
+              <p class="pav" data-t="m-laikas">Laiko juosta</p>
+              <div class="laiko-juosta">
+                <span style="left:2%;width:17%"></span><span class="k" style="left:20%;width:6%"></span>
+                <span style="left:27%;width:21%"></span><span class="k" style="left:49%;width:9%"></span>
+                <span style="left:59%;width:14%"></span><span class="k" style="left:74%;width:5%"></span>
+                <span style="left:80%;width:18%"></span>
+              </div>
+              <span class="auto" data-t="m-auto">Auto montažas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="remas">
+    <section>
+      <h2 class="skyrius" data-t="kam-h">Kam tai</h2>
+      <p class="po" data-t="kam-po">Verslininkams, koučeriams, kūrėjams ir specialistams, kuriems reikia dažnai kelti trumpus video, bet nėra valandų montažui.</p>
+      <div class="palyginimas">
+        <div class="rankomis">
+          <h3 data-t="rank-h">Kai montuoji rankomis</h3>
+          <p data-t="rank-p">Iškerpi pauzes ir pakartojimus, surašai subtitrus, pritaikai dydį kiekvienai programai ir uždedi muziką. Brangios programos ilgai mokytis, prenumeratos kas mėnesį, o samdyti žmogų kainuoja dar daugiau.</p>
+          <span class="laikas" data-t="rank-l">Vienas video suėda vakarą</span>
+        </div>
+        <div class="su">
+          <h3 data-t="su-h">Kai montuoja Xclusiv Edits</h3>
+          <p data-t="su-p">Paspaudi „Auto montažas“, peržiūri rezultatą, pataisai, ką nori, vienu paspaudimu ir išsaugai visoms platformoms iš karto. Kiekvieną pakeitimą vis tiek valdai tu.</p>
+          <span class="laikas" data-t="su-l">Vienas video per kelias minutes</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="skyrius" data-t="zing-h">Nuo telefono video iki įrašo per šešis žingsnius</h2>
+      <p class="po" data-t="zing-po">Pirmą montažą programa padaro už tave, o tu tik pasakai paskutinį žodį.</p>
+      <ol class="zingsniai">
+        <li><span class="nr">1</span><div data-t="z1"><b>Įsikeli video</b><p>Įkeli klipą iš telefono arba nusifilmuoji programoje su teleprompteriu. Programa pati užrašo tavo žodžius.</p></div></li>
+        <li><span class="nr">2</span><div data-t="z2"><b>Pasirenki stilių</b><p>Išsirenki vieną iš 70 stilių arba savo išsaugotą šabloną ir iš karto pamatai jį ant savo video.</p></div></li>
+        <li><span class="nr">3</span><div data-t="z3"><b>Paspaudi „Auto montažas“</b><p>Pauzės, „ėėė“ ir pakartojimai iškerpami. Atsiranda subtitrai tavo žodžiais, kabliukas pirmoms sekundėms, priartinimai, muzika ir švarus garsas. Matai kiekvieną pakeitimą, o vienas „Atšaukti“ viską grąžina.</p></div></li>
+        <li><span class="nr">4</span><div data-t="z4"><b>Pasidarai savaip</b><p>Paspaudi žodį, ir jis iškerpamas. Laiko juostoje bet ką pertempi ar sutrumpini, pridedi savo brendą, grafiką, lipdukus ar įgarsinimą.</p></div></li>
+        <li><span class="nr">5</span><div data-t="z5"><b>Patikrini prieš skelbiant</b><p>Galutinė patikra randa klaidas ir kiekvieną pataiso vienu paspaudimu.</p></div></li>
+        <li><span class="nr">6</span><div data-t="z6"><b>Išsaugai visoms platformoms</b><p>Instagram, Facebook, TikTok, LinkedIn ir YouTube Shorts vienu kartu, su viršeliu, įrašo tekstu ir grotažymėmis.</p></div></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="skyrius" data-t="vid-h">Kas viduje</h2>
+      <p class="po" data-t="vid-po">Kiekviena funkcija turi automatinį mygtuką greičiui ir rankinį valdymą, kai sprendimą nori priimti savo rankomis.</p>
+      <dl class="viduje">
+        <div data-t="v1"><dt>Programa kompiuteriui</dt><dd>Pilnas montažo įrankis tavo Mac (Intel arba Apple procesorius) ar Windows 10/11 kompiuteryje.</dd></div>
+        <div data-t="v2"><dt>Vaizdo kursas</dt><dd>Žingsnis po žingsnio nuo programos įdiegimo iki Reels, TikTok ir LinkedIn video nuo pradžios iki galo.</dd></div>
+        <div data-t="v3"><dt>70 paruoštų montažo stilių</dt><dd>Nuo ramių pamokų iki drąsių paleidimų, kiekvieną pirma išbandai ant savo video.</dd></div>
+        <div data-t="v4"><dt>9 brendo rinkiniai</dt><dd>Spalvos, šriftai, subtitrai ir antraštės, kurios dera tarpusavyje. Įsijungia per du paspaudimus, arba susikuri savo.</dd></div>
+        <div data-t="v5"><dt>24 subtitrų stiliai ir 13 šriftų</dt><dd>Kiekvienas šriftas turi visas lietuviškas raides.</dd></div>
+        <div data-t="v6"><dt>27 grafikos šablonai</dt><dd>Citatos, skaičiai, sąrašai ir kitos kortelės, užpildomos tavo žodžiais.</dd></div>
+        <div data-t="v7"><dt>Muzika ir garsai</dt><dd>10 melodijų ir 43 garso efektai, kuriuos galima naudoti laisvai, plius tavo failai.</dd></div>
+        <div data-t="v8"><dt>Claude kaip kūrybinis partneris</dt><dd>Prisijungi savo Claude paskyrą ir paprastais žodžiais paprašai pakeitimų.</dd></div>
+      </dl>
+      <p class="vienas-kartas" data-t="vienas">Moki vieną kartą ir gauni programą, kursą ir visas bibliotekas. Mėnesinio mokesčio programai nėra.</p>
+    </section>
+
+    <section>
+      <h2 class="skyrius" data-t="r-h">Ko reikia ir kur lieka tavo video</h2>
+      <div class="reikia">
+        <div data-t="r1"><h3>Video lieka pas tave</h3><p>Montuojama tavo kompiuteryje. Klipai, žodžiai ir projektai niekur nekeliami, todėl niekas jų nemato.</p></div>
+        <div data-t="r2"><h3>Lietuviškai ir angliškai</h3><p>Visa programa, nuo meniu iki subtitrų, veikia abiem kalbomis, o lietuviškos raidės lieka tikslios.</p></div>
+        <div data-t="r3"><h3>Kompiuteris</h3><p>Mac arba Windows 10/11. Telefone programos nėra. Kuo greitesnis kompiuteris, tuo greičiau veikia automatinis montažas.</p></div>
+        <div data-t="r4"><h3>Claude nebūtinas</h3><p>Jei nori Claude kaip partnerio, įsidiegi nemokamą Claude Desktop programą ir prisijungi savo paskyra. Visa kita veikia ir be jo.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pabaiga">
+    <div class="remas">
+      <h2 data-t="pab-h">Nufilmuok telefonu, o montažą palik programai</h2>
+      <p data-t="pab-p">Vieta sąraše nieko nekainuoja. Apie atidarymą sužinosi tarp pirmųjų ir gausi mažiausią kainą.</p>
+      <a class="mygtukas" href="#sarasas" data-i-forma data-t="cta2">Įrašyti mane į sąrašą</a>
+      <p class="parase">Kristina Meseguer, <a href="https://www.instagram.com/kristina_meseguer/">@kristina_meseguer</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Kalbos: lietuviškas tekstas gyvena HTML, angliškas čia (iš PDF „Xclusiv Edits Product Overview“).
+    // Kalbą parenka ?lang=en / ?lang=lt, paskui žmogaus anksčiau pasirinkta, paskui telefono kalba (yra lietuvių = LT, kitaip EN).
+    const EN = {
+      "nav": "Waiting list",
+      "h1": "Editing no longer takes your whole evening",
+      "ivadas": "<strong>Xclusiv Edits</strong> is an editing app for your computer, plus a video course that teaches you to use it. The video you film on your phone becomes a polished Reel, TikTok, Short or LinkedIn post in minutes.",
+      "kodel": "People on the waiting list hear about the launch first and get the lowest price.",
+      "label": "Email",
+      "cta": "Join the waiting list",
+      "smulkiai": "I’ll only email you about Xclusiv Edits. Unsubscribe with one click at the bottom of any email.",
+      "aciu-h": "You’re on the list",
+      "aciu-1": "When we open, you’ll be among the first to get the lowest price. If nothing arrives in a few days, check your Promotions or Spam folder.",
+      "aciu-2": "Meanwhile, you can follow my day-to-day on <a href=\"https://www.instagram.com/kristina_meseguer/\">Instagram</a>.",
+      "m-titras": "edited in <b>minutes</b>",
+      "m-zodziai": "Your words",
+      "m-juosta-zodziai": "<span>Today</span><span class=\"iskirpti\">um</span><span>I’ll show</span><span class=\"iskirpti\">… pause</span><span>how</span><span class=\"iskirpti\">I</span><span>I</span><span>edit</span><span class=\"iskirpti\">uh</span><span>videos</span>",
+      "m-laikas": "Timeline",
+      "m-auto": "Auto edit",
+      "kam-h": "Who it’s for",
+      "kam-po": "Business owners, coaches, creators and professionals who need to post short video often but don’t have hours to edit.",
+      "rank-h": "Editing by hand",
+      "rank-p": "You cut pauses and retakes, type captions, resize for each app and add music. Pro editors take ages to learn, subscriptions charge every month, and hiring someone costs even more.",
+      "rank-l": "One video takes an evening",
+      "su-h": "Editing with Xclusiv Edits",
+      "su-p": "Press Auto edit, check the result, adjust anything with a click and export for every platform at once. You stay in charge of every change.",
+      "su-l": "One video in minutes",
+      "zing-h": "From phone video to post in six steps",
+      "zing-po": "The app does the first edit for you, and you have the final say.",
+      "z1": "<b>Bring your video in</b><p>Import a clip from your phone or record yourself in the app with a teleprompter. The app writes down your words by itself.</p>",
+      "z2": "<b>Choose a style</b><p>Pick one of 70 styles or one of your saved templates and see it on your own video straight away.</p>",
+      "z3": "<b>Press Auto edit</b><p>Pauses, “um”s and retakes are cut. Captions in your own words, a hook for the first seconds, zooms, music and studio sound are added. You see every change, and one Undo reverts it.</p>",
+      "z4": "<b>Make it yours</b><p>Tap a word to cut it. Drag anything on the timeline to move it or change its length, and add your brand, graphics, stickers or a voice-over.</p>",
+      "z5": "<b>Check before you post</b><p>A final check catches problems and fixes each one with a click.</p>",
+      "z6": "<b>Export for every platform</b><p>Instagram, Facebook, TikTok, LinkedIn and YouTube Shorts at once, with a cover, post text and hashtags.</p>",
+      "vid-h": "What’s inside",
+      "vid-po": "Every feature has an Auto button for speed and a manual control for the final say.",
+      "v1": "<dt>The app for your computer</dt><dd>A complete editor on your Mac (Intel or Apple chip) or Windows 10/11 PC.</dd>",
+      "v2": "<dt>Video course</dt><dd>Step by step, from installing the app to full walk-throughs of a Reel, a TikTok and a LinkedIn video.</dd>",
+      "v3": "<dt>70 ready-made edit styles</dt><dd>From calm tutorials to bold launches, each one tried on your own video first.</dd>",
+      "v4": "<dt>9 ready brand kits</dt><dd>Colours, fonts, captions and titles that match, ready in two clicks, or build your own.</dd>",
+      "v5": "<dt>24 caption styles and 13 fonts</dt><dd>Every font includes all Lithuanian letters too.</dd>",
+      "v6": "<dt>27 graphic templates</dt><dd>Quote cards, stats, checklists and more, filled in from your own words.</dd>",
+      "v7": "<dt>Music and sound effects</dt><dd>10 music tracks and 43 sound effects you are free to use, plus your own files.</dd>",
+      "v8": "<dt>Claude as your creative partner</dt><dd>Connect your own Claude account and ask for edits in plain words.</dd>",
+      "vienas": "Pay once and get the app, the course and every library. There is no monthly fee for the app.",
+      "r-h": "What you need, and where your videos stay",
+      "r1": "<h3>Your videos stay with you</h3><p>Editing happens on your computer. Your clips, words and projects are never uploaded, so nobody else sees them.</p>",
+      "r2": "<h3>English and Lithuanian</h3><p>The whole app, from the menus to your captions, works in both languages.</p>",
+      "r3": "<h3>Computer</h3><p>A Mac or a Windows 10/11 PC. There is no phone version. A faster computer makes Auto edit quicker.</p>",
+      "r4": "<h3>Claude is optional</h3><p>To use Claude as your creative partner, install the free Claude Desktop app and sign in with your own account. Everything else works without it.</p>",
+      "pab-h": "Film it on your phone and leave the editing to the app",
+      "pab-p": "A spot on the list costs nothing. You’ll hear about the launch among the first and get the lowest price.",
+      "cta2": "Join the waiting list"
+    };
+    const KITI = {
+      lt: {
+        title: "Xclusiv Edits | Laukiančiųjų sąrašas",
+        aprasas: "Montažo programa kompiuteriui ir vaizdo kursas. Nufilmuotas telefonu video per kelias minutes tampa Reels, TikTok, Shorts ir LinkedIn įrašu. Sąrašas sužinos pirmas ir gaus mažiausią kainą.",
+        placeholder: "tavo@pastas.lt",
+        kalbaAria: "Kalba",
+        blogasPastas: "Patikrink el. paštą: atrodo, kad jame trūksta raidės ar ženklo.",
+        neissiusta: "Nepavyko išsiųsti. Patikrink internetą ir spausk dar kartą.",
+        irasau: "Įrašau…"
+      },
+      en: {
+        title: "Xclusiv Edits | Waiting list",
+        aprasas: "An editing app for your computer plus a video course. The video you film on your phone becomes a Reel, TikTok, Short or LinkedIn post in minutes. The waiting list hears first and gets the lowest price.",
+        placeholder: "you@email.com",
+        kalbaAria: "Language",
+        blogasPastas: "Check your email address: it looks like a letter or symbol is missing.",
+        neissiusta: "Couldn’t send. Check your connection and try again.",
+        irasau: "Adding you…"
+      }
+    };
+    const LT = {};
+    document.querySelectorAll("[data-t]").forEach(el => { LT[el.dataset.t] = el.innerHTML; });
+
+    let kalba = "lt";
+    function pradineKalba() {
+      const p = new URLSearchParams(location.search).get("lang");
+      if (p === "en" || p === "lt") return p;
+      try {
+        const issaugota = localStorage.getItem("edits-kalba");
+        if (issaugota === "en" || issaugota === "lt") return issaugota;
+      } catch (e) {}
+      const telefono = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      return telefono.some(l => /^lt\b/i.test(l)) ? "lt" : "en";
+    }
+    function nustatytiKalba(k, issaugoti) {
+      kalba = k;
+      const zodynas = k === "en" ? EN : LT;
+      document.querySelectorAll("[data-t]").forEach(el => {
+        if (el === mygtukas && mygtukas.disabled) return;
+        el.innerHTML = zodynas[el.dataset.t];
+      });
+      const kiti = KITI[k];
+      document.documentElement.lang = k;
+      document.title = kiti.title;
+      document.querySelector('meta[name="description"]').content = kiti.aprasas;
+      laukas.placeholder = kiti.placeholder;
+      document.querySelector("[data-kalbos]").setAttribute("aria-label", kiti.kalbaAria);
+      document.querySelectorAll("[data-kalba]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.kalba === k)));
+      klaida.hidden = true;
+      if (issaugoti) { try { localStorage.setItem("edits-kalba", k); } catch (e) {} }
+    }
+
+    // ⚠️ Laikinai tas pats Make webhook kaip /kursas/ (scenarijus 8017239 → MailerLite grupė „mokymai“).
+    // Prieš paleidžiant reikia atskiros MailerLite grupės „edits“ (geriausia dviejų: LT ir EN), kitaip šie žmonės susimaišys su intensyvo sąrašu.
+    // Kol kas atskiriam pagal laukelius saltinis („edits-…“) ir kalba („lt“ / „en“).
+    const WEBHOOK = "https://hook.eu1.make.com/aift8w45ia9shweeprq22fx1t6r7y9up";
+    const SALTINIS = "edits-" + ((new URLSearchParams(location.search).get("is") || "instagram")
+      .toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 14) || "instagram");
+
+    const forma = document.querySelector("[data-forma]");
+    const laukas = document.getElementById("pastas");
+    const mygtukas = document.querySelector("[data-mygtukas]");
+    const klaida = document.querySelector("[data-klaida]");
+
+    nustatytiKalba(pradineKalba(), false);
+    document.querySelectorAll("[data-kalba]").forEach(b => {
+      b.addEventListener("click", () => nustatytiKalba(b.dataset.kalba, true));
+    });
+
+    function rodytiKlaida(tekstas) {
+      klaida.textContent = tekstas;
+      klaida.hidden = false;
+    }
+
+    // Apatinis mygtukas nuveda į formą ir iškart įjungia langelį
+    document.querySelector("[data-i-forma]").addEventListener("click", () => {
+      setTimeout(() => { if (!forma.closest("[hidden]")) laukas.focus({ preventScroll: true }); }, 450);
+    });
+
+    forma.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      klaida.hidden = true;
+      if (forma.svetaine.value) return; // robotas užpildė paslėptą lauką
+      const pastas = laukas.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(pastas)) {
+        rodytiKlaida(KITI[kalba].blogasPastas);
+        laukas.focus();
+        return;
+      }
+      mygtukas.disabled = true;
+      mygtukas.textContent = KITI[kalba].irasau;
+      try {
+        await fetch(WEBHOOK, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ email: pastas, saltinis: SALTINIS, produktas: "edits", kalba }).toString()
+        });
+        document.querySelector("[data-forma-blokas]").hidden = true;
+        const aciu = document.querySelector("[data-aciu]");
+        aciu.hidden = false;
+        aciu.focus({ preventScroll: true });
+        document.querySelector("[data-i-forma]").hidden = true;
+      } catch (err) {
+        mygtukas.disabled = false;
+        mygtukas.innerHTML = (kalba === "en" ? EN : LT).cta;
+        rodytiKlaida(KITI[kalba].neissiusta);
+      }
+    });
+  </script>
+</body>
+</html>
