@@ -205,13 +205,18 @@
 
     .apacia { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--espresso); color: var(--akmens); font-size: 13px; text-align: center; }
     .apacia a { color: var(--pelenu); text-decoration: none; }
+    .kaina-blokas { margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid rgba(235,228,219,0.15); }
+    .kaina-blokas .nauja-kaina { color: var(--karamele); }
+    .kaina-blokas .sena { font-size: 0.55em; color: var(--akmens); text-decoration-thickness: 2px; }
+    .kaina-blokas .mygtukas { display: flex; justify-content: center; text-decoration: none; margin: 18px 0 10px; }
+    .kaina-blokas .smulkiai a, .aciu a { color: var(--karamele); }
   </style>
 </head>
 <body>
   <main class="remas">
     <div class="virsus">
       <span><b>Kristina</b> · @kristina_meseguer</span>
-      <span class="zyme">Ankstyva registracija</span>
+      <span class="zyme">Registracija iki 10-28</span>
     </div>
 
     <div class="klavisai" aria-hidden="true">
@@ -234,16 +239,23 @@
     </div>
 
     <div class="kortele" id="sarasas">
-      <div data-forma-blokas>
-        <p class="etikete">Užsiimk vietą</p>
-        <h2>Gauk geresnę kainą</h2>
-        <p class="ivadas">Kai atidarysiu registraciją, laukiančiųjų sąraše esantys žmonės pirmieji sužinos viską ir gaus geriausią kainą.</p>
+      <div class="kaina-blokas">
+        <p class="etikete">Registracija atidaryta</p>
+        <h2>Pirmiems <span class="nauja-kaina">400 €</span> <s class="sena">500 €</s></h2>
+        <p class="ivadas">Ši kaina galioja iki <b>spalio 28 d. 23:59</b> Lietuvos laiku. Vėliau kaina brangs iki 450–500 €.</p>
+        <a class="mygtukas" href="https://stan.store/kristina-meseguer/p/claude-code-intensyvas">Noriu į mokymus <span aria-hidden="true">→</span></a>
+        <p class="smulkiai">Apmokėjimas kortele per Stan. Reikia sąskaitos įmonei arba nori mokėti pavedimu? Parašyk man <a href="https://www.instagram.com/kristina_meseguer/">@kristina_meseguer</a>.</p>
+      </div>
+
+      <div data-forma-blokas class="dar-galvoji">
+        <p class="etikete">Dar galvoji?</p>
+        <p class="ivadas">Palik el. paštą, ir atsiųsiu visą informaciją bei priminimą prieš kainai pakylant.</p>
 
         <form data-forma novalidate>
           <label for="pastas">El. paštas</label>
           <input id="pastas" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tavo@pastas.lt" required>
           <input class="medus" name="svetaine" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="mygtukas" type="submit" data-mygtukas>Noriu geresnės kainos <span aria-hidden="true">→</span></button>
+          <button class="mygtukas" type="submit" data-mygtukas>Atsiųsk informaciją <span aria-hidden="true">→</span></button>
           <p class="klaida" data-klaida role="alert" hidden></p>
           <p class="smulkiai">Rašysiu tik apie kursą. Atsisakyti galima vienu paspaudimu kiekvieno laiško apačioje.</p>
         </form>
@@ -252,14 +264,14 @@
       <div class="aciu" data-aciu hidden tabindex="-1">
         <p class="etikete">Tu sąraše</p>
         <h2>Įrašiau tave</h2>
-        <p>Kai atidarysiu registraciją, laišką su geresne kaina gausi tarp pirmųjų. Jei per kelias dienas nieko nematysi, pažiūrėk į „Reklamos“ arba „Šlamšto“ aplanką.</p>
+        <p>Laišką su visa informacija gausi į el. paštą. Jei jo nematysi, pažiūrėk į „Reklamos“ arba „Šlamšto“ aplanką. Jei jau nusprendei, <a href="https://stan.store/kristina-meseguer/p/claude-code-intensyvas">registruokis čia</a>.</p>
         <p>O kol kas mano kasdienybę ir Claude darbus rasi <a href="https://www.instagram.com/kristina_meseguer/">Instagrame</a>.</p>
       </div>
     </div>
 
     <section class="viduje">
       <h3>Ką padarysim kartu</h3>
-      <p class="po">Vienuolika temų, nuo įdiegimo iki pardavimų. Pradedam lapkritį: du savaitgaliai ir 16 valandų gyvai per Zoom. Mažiau teorijos, daugiau darom kartu savo kompiuteryje.</p>
+      <p class="po">Vienuolika temų, nuo įdiegimo iki pardavimų. Du savaitgaliai ir 16 valandų gyvai per Zoom: lapkričio 28 ir 29, gruodžio 5 ir 6, nuo 10 iki 14 val. Lietuvos laiku. Mažiau teorijos, daugiau darom kartu savo kompiuteryje.</p>
       <ol class="temos">
         <li><span class="nr">01</span><span><b>Įdiegimas.</b> Žingsnis po žingsnio susidedi Claude Code ir visas reikalingas programas.</span></li>
         <li><span class="nr">02</span><span><b>Niša, bio ir pozicionavimas.</b> Claude padeda suprasti, kam tu kalbi, ir parašyti bio, po kurio žmonės seka.</span></li>
@@ -302,8 +314,8 @@
     </section>
 
     <div class="pabaiga">
-      <span class="rasytine">vieta sąraše nieko nekainuoja</span>
-      <a class="mygtukas" href="#sarasas" data-i-forma>Įrašyk mane į sąrašą</a>
+      <span class="rasytine">pirmiems 400 € iki spalio 28 d.</span>
+      <a class="mygtukas" href="https://stan.store/kristina-meseguer/p/claude-code-intensyvas">Noriu į mokymus</a>
     </div>
 
     <p class="apacia">Kristina Meseguer · <a href="https://www.instagram.com/kristina_meseguer/">@kristina_meseguer</a></p>
@@ -328,7 +340,7 @@
     }
 
     // Apatinis mygtukas nuveda į kortelę ir iškart įjungia langelį
-    document.querySelector("[data-i-forma]").addEventListener("click", () => {
+    document.querySelector("[data-i-forma]")?.addEventListener("click", () => {
       setTimeout(() => { if (!forma.closest("[hidden]")) laukas.focus({ preventScroll: true }); }, 450);
     });
 
