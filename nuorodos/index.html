@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kristina Meseguer | Nuorodos</title>
+  <meta name="description" content="Claude Code intensyvas ir Xclusiv Edits montažo programa.">
+  <meta name="theme-color" content="#1E1A17">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Viena nuoroda bio, du produktai. Spalvos iš brand book v8 (STILIUS.md). */
+    :root {
+      --anglis: #1E1A17;
+      --espresso: #44382F;
+      --pelenu: #C1BCB6;
+      --kremine: #EBE4DB;
+      --geltona: #F6E46E;
+      --bebas: "Bebas Neue", "Arial Narrow", sans-serif;
+      --rasytinis: "Great Vibes", cursive;
+      --inter: "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100svh;
+      background: radial-gradient(120% 70% at 50% 0%, var(--espresso) 0%, var(--anglis) 70%) var(--anglis);
+      color: var(--kremine);
+      font: 400 16px/1.5 var(--inter);
+      -webkit-font-smoothing: antialiased;
+      display: flex; justify-content: center;
+    }
+    :focus-visible { outline: 2px solid var(--geltona); outline-offset: 3px; }
+    main { width: 100%; max-width: 460px; padding: 48px 16px 40px; text-align: center; }
+    .logo { width: 140px; height: auto; opacity: 0.95; }
+    h1 { font: 400 46px/1 var(--bebas); letter-spacing: 1px; margin-top: 18px; }
+    .rasytine { font: 400 30px/1.2 var(--rasytinis); color: var(--geltona); margin-top: 2px; }
+    .mygtukai { display: grid; gap: 14px; margin-top: 32px; }
+    a.mygtukas {
+      display: block; text-decoration: none; text-align: left;
+      padding: 18px 20px; border-radius: 16px;
+      background: rgba(235, 228, 219, 0.06);
+      border: 1.5px solid rgba(235, 228, 219, 0.22);
+      color: var(--kremine);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    a.mygtukas:hover, a.mygtukas:active { transform: translateY(-2px); border-color: var(--geltona); background: rgba(246, 228, 110, 0.07); }
+    a.mygtukas.pirmas { border-color: var(--geltona); }
+    .pavadinimas { font: 400 30px/1 var(--bebas); letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .pavadinimas span { color: var(--geltona); font-size: 26px; }
+    .aprasas { color: var(--pelenu); font-size: 15px; margin-top: 6px; }
+    footer { margin-top: 36px; color: var(--pelenu); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="/img/logo-kremine.svg" alt="Kristina Meseguer">
+    <h1>Kur nori eiti?</h1>
+    <p class="rasytine">pasirink vieną</p>
+
+    <nav class="mygtukai">
+      <a class="mygtukas pirmas" data-kelias="/kursas/" href="/kursas/">
+        <div class="pavadinimas">Claude Code intensyvas <span>→</span></div>
+        <p class="aprasas">Du savaitgaliai lapkritį, kai Claude Code padaro darbus už tave. Speciali kaina galioja iki spalio 28 dienos.</p>
+      </a>
+      <a class="mygtukas" data-kelias="/edits/" href="/edits/">
+        <div class="pavadinimas">Xclusiv Edits <span>→</span></div>
+        <p class="aprasas">Montažo programa ir vaizdo kursas. Laukiančiųjų sąrašas apie atidarymą sužino pirmas.</p>
+      </a>
+    </nav>
+
+    <footer>@kristina_meseguer</footer>
+  </main>
+  <script>
+    // Šaltinio žymę (?is=tiktok) perduodam toliau, kad Make istorijoje matytųsi, iš kur atėjo.
+    try {
+      var is = new URLSearchParams(location.search).get('is');
+      if (is) document.querySelectorAll('a[data-kelias]').forEach(function (a) {
+        a.href = a.dataset.kelias + '?is=' + encodeURIComponent(is);
+      });
+    } catch (e) {}
+  </script>
+</body>
+</html>
