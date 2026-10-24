@@ -12,6 +12,7 @@
       "destination": "/edits/",
       "permanent": false
     },
+    { "source": "/threads", "has": [{ "type": "host", "value": "claude-code-mokymai.vercel.app" }], "destination": "/kursas/?is=threads", "permanent": false },
     { "source": "/ig", "has": [{ "type": "host", "value": "xclusiv-edits.vercel.app" }], "destination": "/edits/?is=instagram", "permanent": false },
     { "source": "/fb", "has": [{ "type": "host", "value": "xclusiv-edits.vercel.app" }], "destination": "/edits/?is=facebook", "permanent": false },
     { "source": "/tt", "has": [{ "type": "host", "value": "xclusiv-edits.vercel.app" }], "destination": "/edits/?is=tiktok", "permanent": false },

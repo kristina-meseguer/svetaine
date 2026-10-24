@@ -210,6 +210,8 @@
     .kaina-blokas .sena { font-size: 0.55em; color: var(--akmens); text-decoration-thickness: 2px; }
     .kaina-blokas .mygtukas { display: flex; justify-content: center; text-decoration: none; margin: 18px 0 10px; }
     .kaina-blokas .smulkiai a, .aciu a { color: var(--karamele); }
+    .aciu.kaina-blokas { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+    .aciu .mygtukas { color: var(--anglis); }
   </style>
 </head>
 <body>
@@ -242,23 +244,25 @@
       <div data-forma-blokas>
         <p class="etikete">Registracija atidaryta</p>
         <h2>Speciali kaina pirmiems galioja iki <span class="nauja-kaina">spalio 28 d.</span></h2>
-        <p class="ivadas">Palik el. paštą, ir iš karto atsiųsiu visą informaciją: kainą ir registracijos nuorodą.</p>
+        <p class="ivadas">Palik el. paštą, ir čia pat pamatysi kainą ir registracijos nuorodą.</p>
 
         <form data-forma novalidate>
           <label for="pastas">El. paštas</label>
           <input id="pastas" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tavo@pastas.lt" required>
           <input class="medus" name="svetaine" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="mygtukas" type="submit" data-mygtukas>Atsiųsk informaciją <span aria-hidden="true">→</span></button>
+          <button class="mygtukas" type="submit" data-mygtukas>Parodyk kainą <span aria-hidden="true">→</span></button>
           <p class="klaida" data-klaida role="alert" hidden></p>
           <p class="smulkiai">Rašysiu tik apie kursą. Atsisakyti galima vienu paspaudimu kiekvieno laiško apačioje.</p>
         </form>
       </div>
 
-      <div class="aciu" data-aciu hidden tabindex="-1">
+      <!-- Kaina ir Stan nuoroda matomos tik palikus el. paštą (Kristina 10-24: kaina viešai neskelbiama) -->
+      <div class="aciu kaina-blokas" data-aciu hidden tabindex="-1">
         <p class="etikete">Tu sąraše</p>
-        <h2>Įrašiau tave</h2>
-        <p>Per kelias minutes gausi laišką su kaina ir registracijos nuoroda. Jei jo nematysi, pažiūrėk į „Reklamos“ arba „Šlamšto“ aplanką.</p>
-        <p>O kol kas mano kasdienybę ir Claude darbus rasi <a href="https://www.instagram.com/kristina_meseguer/">Instagrame</a>.</p>
+        <h2>Tavo kaina <span class="nauja-kaina">400 €</span> <s class="sena">500 €</s></h2>
+        <p>Ši kaina galioja iki <b>spalio 28 d. 23:59</b> Lietuvos laiku. Vėliau kursas brangs.</p>
+        <a class="mygtukas" data-pirkti href="#">Noriu į mokymus <span aria-hidden="true">→</span></a>
+        <p class="smulkiai">Atidarau registracijos puslapį. Jei jis neatsidarė, spausk mygtuką.</p>
       </div>
     </div>
 
@@ -318,6 +322,8 @@
     // Tas pats kelias kaip /mokymai/: Make 8017239 (webhook 3923309) → MailerLite grupė „mokymai“.
     // Instagram bio nuoroda be parametrų = „instagram“, kitur galima ?is=tiktok, ?is=story ir pan.
     const WEBHOOK = "https://hook.eu1.make.com/aift8w45ia9shweeprq22fx1t6r7y9up";
+    // Stan nuoroda įdedama į mygtuką tik po el. pašto
+    const STAN = "https://stan.store/kristina-meseguer/p/claude-code-intensyvas";
     const SALTINIS = (new URLSearchParams(location.search).get("is") || "instagram")
       .toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20) || "instagram";
 
@@ -358,9 +364,12 @@
         });
         document.querySelector("[data-forma-blokas]").hidden = true;
         const aciu = document.querySelector("[data-aciu]");
+        aciu.querySelector("[data-pirkti]").href = STAN;
         aciu.hidden = false;
         aciu.focus({ preventScroll: true });
         document.querySelector(".pabaiga").hidden = true;
+        // Po el. pašto iškart vedam į Stan mokėjimo puslapį, mygtukas lieka atsargai
+        setTimeout(() => { location.href = STAN; }, 1800);
       } catch (err) {
         mygtukas.disabled = false;
         mygtukas.innerHTML = MYGTUKO_TEKSTAS;
