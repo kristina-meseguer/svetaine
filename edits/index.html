@@ -528,9 +528,10 @@
       if (issaugoti) { try { localStorage.setItem("edits-kalba", k); } catch (e) {} }
     }
 
-    // Make scenarijus 8133241 → MailerLite: kalba „en“ = grupė „EDITS EN (waitlist)“, kitaip „EDITS LT (laukiantieji)“.
-    // Tas pats webhook ir ManyChat EDITS automatikai.
-    const WEBHOOK = "https://hook.eu1.make.com/8z2bx7fddxeqq7jpuh3844r3oro46hrc";
+    // Forma → /api/edits (atmeta robotus ir kartojimus) → Make 8133241 → MailerLite:
+    // kalba „en“ = grupė „EDITS EN (waitlist)“, kitaip „EDITS LT (laukiantieji)“.
+    const SIUSTI_I = "/api/edits";
+    const ATIDARYTA = Date.now();
     // Iš kur atėjo: pirma ?is= (trumposios nuorodos /ig /fb /tt /tg ją uždeda), paskui programos naršyklė, paskui ankstesnis puslapis.
     function atpazintiSaltini() {
       const zyme = (new URLSearchParams(location.search).get("is") || "")
@@ -583,12 +584,15 @@
       mygtukas.disabled = true;
       mygtukas.textContent = KITI[kalba].irasau;
       try {
-        await fetch(WEBHOOK, {
+        const atsakymas = await fetch(SIUSTI_I, {
           method: "POST",
-          mode: "no-cors",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({ email: pastas, saltinis: SALTINIS, produktas: "edits", kalba }).toString()
+          body: new URLSearchParams({
+            email: pastas, saltinis: SALTINIS, kalba,
+            svetaine: forma.svetaine.value, laikas: String(Date.now() - ATIDARYTA)
+          }).toString()
         });
+        if (!atsakymas.ok) throw new Error("nepriimta " + atsakymas.status);
         document.querySelector("[data-forma-blokas]").hidden = true;
         const aciu = document.querySelector("[data-aciu]");
         aciu.hidden = false;
