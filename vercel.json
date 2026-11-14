@@ -19,7 +19,7 @@
           "value": "xclusiv-edits.vercel.app"
         }
       ],
-      "destination": "/edits/",
+      "destination": "https://www.xclusiv.studio/",
       "permanent": false
     },
     {
@@ -41,7 +41,7 @@
           "value": "xclusiv-edits.vercel.app"
         }
       ],
-      "destination": "/edits/?is=instagram",
+      "destination": "https://www.xclusiv.studio/",
       "permanent": false
     },
     {
@@ -52,7 +52,7 @@
           "value": "xclusiv-edits.vercel.app"
         }
       ],
-      "destination": "/edits/?is=facebook",
+      "destination": "https://www.xclusiv.studio/",
       "permanent": false
     },
     {
@@ -74,7 +74,7 @@
           "value": "xclusiv-edits.vercel.app"
         }
       ],
-      "destination": "/edits/?is=telegram",
+      "destination": "https://www.xclusiv.studio/",
       "permanent": false
     },
     {
@@ -86,6 +86,16 @@
         }
       ],
       "destination": "/nuorodos/?is=tiktok",
+      "permanent": false
+    },
+    {
+      "source": "/edits",
+      "destination": "https://www.xclusiv.studio/",
+      "permanent": false
+    },
+    {
+      "source": "/edits/:path*",
+      "destination": "https://www.xclusiv.studio/",
       "permanent": false
     }
   ],
