@@ -94,7 +94,12 @@
       "permanent": false
     },
     {
-      "source": "/edits/:path*",
+      "source": "/edits/",
+      "destination": "https://www.xclusiv.studio/",
+      "permanent": false
+    },
+    {
+      "source": "/edits/(.*)",
       "destination": "https://www.xclusiv.studio/",
       "permanent": false
     }
