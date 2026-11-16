@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <!-- 2026-11-16 KLAIDOS: ManyChat DM -> šis puslapis -> el. paštas -> /api/edits (Make 8133241 -> MailerLite EDITS) -> PDF atsidaro naršyklėje -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>7 montažo klaidos | Kristina Meseguer</title>
+  <meta name="description" content="Nemokamas PDF: septynios montažo klaidos, dėl kurių reels prascrolina.">
+  <meta name="theme-color" content="#1E1A17">
+  <link rel="icon" href="../img/zenklas-kremine.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Brand book v8 (~/.claude/STILIUS.md) */
+    :root {
+      --anglis: #1E1A17; --espresso: #44382F; --akmens: #87827C;
+      --pelenu: #C1BCB6; --kremine: #EBE4DB; --karamele: #C9A27E;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--anglis); color: var(--kremine);
+      font: 400 17px/1.6 "Inter", system-ui, sans-serif;
+      min-height: 100svh; display: flex; align-items: center; justify-content: center;
+      padding: 32px 20px;
+    }
+    main { width: 100%; max-width: 460px; }
+    .rasytinis { font-family: "Great Vibes", cursive; color: var(--karamele); font-size: 40px; line-height: 1; }
+    h1 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 56px; line-height: .95; letter-spacing: .5px; margin: 6px 0 16px; }
+    p { color: var(--pelenu); margin-bottom: 22px; }
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input[type=email] {
+      font: inherit; padding: 16px 18px; border-radius: 12px;
+      border: 1px solid var(--akmens); background: var(--espresso); color: var(--kremine);
+    }
+    input[type=email]::placeholder { color: var(--akmens); }
+    button, .mygtukas {
+      font-family: "Bebas Neue", sans-serif; font-size: 26px; letter-spacing: 1px;
+      padding: 14px 18px; border-radius: 12px; border: 0; cursor: pointer;
+      background: var(--karamele); color: var(--anglis); text-align: center; text-decoration: none; display: block;
+    }
+    button[disabled] { opacity: .6; cursor: default; }
+    .paslepta { position: absolute; left: -9999px; }
+    .klaida { color: #E8A48F; font-size: 15px; min-height: 1em; }
+    .smulkiai { font-size: 13px; color: var(--akmens); margin-top: 14px; }
+    #gauta { display: none; }
+    #gauta .antras { background: transparent; color: var(--kremine); border: 1px solid var(--akmens); margin-top: 12px; font-size: 22px; }
+  </style>
+</head>
+<body>
+<main>
+  <section id="forma-blokas">
+    <div class="rasytinis">nemokamas gidas</div>
+    <h1>7 montažo klaidos, dėl kurių reels prascrolina</h1>
+    <p>Įrašyk savo el. paštą ir PDF iškart atsidarys čia pat, be jokio prisijungimo.</p>
+    <form id="forma" novalidate>
+      <input type="email" name="email" placeholder="Tavo el. paštas" autocomplete="email" required>
+      <input class="paslepta" type="text" name="svetaine" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Gauti PDF</button>
+      <div class="klaida" id="klaida"></div>
+    </form>
+    <div class="smulkiai">El. paštą naudosiu tik savo laiškams, atsisakyti galėsi bet kada.</div>
+  </section>
+
+  <section id="gauta">
+    <div class="rasytinis">ačiū</div>
+    <h1>Tavo PDF paruoštas</h1>
+    <p>Jei neatsidarė savaime, spausk mygtuką.</p>
+    <a class="mygtukas" href="7-montazo-klaidos.pdf" target="_blank" rel="noopener">Atidaryti PDF</a>
+    <a class="mygtukas antras" href="https://www.xclusiv.studio/?lang=lt&is=klaidos">Pažiūrėti Xclusiv Edits</a>
+  </section>
+</main>
+<script>
+  const pradzia = Date.now();
+  const forma = document.getElementById("forma");
+  const klaida = document.getElementById("klaida");
+  const is = new URLSearchParams(location.search).get("is") || "manychat";
+
+  forma.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const pastas = forma.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(pastas)) {
+      klaida.textContent = "Patikrink el. pašto adresą.";
+      return;
+    }
+    klaida.textContent = "";
+    const mygtukas = forma.querySelector("button");
+    mygtukas.disabled = true;
+    mygtukas.textContent = "Siunčiu…";
+    try {
+      const r = await fetch("/api/edits", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: pastas,
+          saltinis: "klaidos-" + is.replace(/[^a-z0-9-]/gi, "").slice(0, 30),
+          kalba: "lt",
+          laikas: Date.now() - pradzia,
+          svetaine: forma.svetaine.value
+        })
+      });
+      if (r.status === 400) {
+        klaida.textContent = "Patikrink el. pašto adresą.";
+        mygtukas.disabled = false; mygtukas.textContent = "Gauti PDF";
+        return;
+      }
+    } catch (err) { /* PDF vis tiek atiduodam, kad žmogus neliktų be dovanos */ }
+    document.getElementById("forma-blokas").style.display = "none";
+    document.getElementById("gauta").style.display = "block";
+    window.open("7-montazo-klaidos.pdf", "_blank");
+  });
+</script>
+</body>
+</html>

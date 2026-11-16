@@ -106,6 +106,15 @@
   ],
   "headers": [
     {
+      "source": "/klaidos/7-montazo-klaidos.pdf",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
       "source": "/mentoryste/planas.pdf",
       "headers": [
         {
