@@ -122,7 +122,8 @@ t120: "<b>Jei per tris mėnesius darysi užduotis, rezultatą pamatysi savo skai
 t121: "Vietų nedaug, nes kiekvienam skiriu laiko kasdien. · <a href=\"programa.pdf\" target=\"_blank\">Atsisiųsk programą (PDF)</a>",
 t122: "12 savaičių, asmeniškai",
 t123: "Kristina Meseguer · Privati mentorystė",
-t124: "Kasdien"
+t124: "Kasdien",
+t125: "Arba išsimokėtinai: <b>3 × 550 €</b>, kiekvieną mėnesį mokama į priekį, pasirašius sutartį."
 },
 
 ru: {
@@ -247,7 +248,8 @@ t120: "<b>Если три месяца выполнять задания, рез
 t121: "Мест немного, потому что каждому я уделяю время каждый день. · <a href=\"program.pdf\" target=\"_blank\">Скачать программу (PDF, на английском)</a>",
 t122: "12 недель, один на один",
 t123: "Kristina Meseguer · Личное менторство",
-t124: "Каждый день"
+t124: "Каждый день",
+t125: "Или в рассрочку: <b>3 × 550 €</b>, каждый месяц оплачивается вперёд, по подписанному договору."
 },
 
 es: {
@@ -372,6 +374,7 @@ t120: "<b>Si haces el trabajo durante estos tres meses, lo verás en tus número
 t121: "Hay pocas plazas, porque a cada persona le dedico tiempo cada día. · <a href=\"program.pdf\" target=\"_blank\">Descarga el programa (PDF, en inglés)</a>",
 t122: "12 semanas, uno a uno",
 t123: "Kristina Meseguer · Mentoría privada",
-t124: "Cada día"
+t124: "Cada día",
+t125: "O a plazos: <b>3 × 550 €</b>, cada mes se paga por adelantado, con un contrato firmado."
 }
 };
