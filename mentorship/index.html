@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private Mentorship · Claude Code, Social Media and Sales · Kristina Meseguer</title>
+<meta name="description" content="A twelve-week private mentorship: Claude Code, video and social media, storytelling, public speaking, marketing and sales. One-to-one with Kristina Meseguer.">
+<meta property="og:title" content="Private Mentorship with Kristina Meseguer">
+<meta property="og:description" content="Twelve weeks, one-to-one: Claude Code, social media and sales.">
+<meta property="og:image" content="img/kristina-1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Great+Vibes&amp;family=Inter:wght@400;600&amp;family=Oswald:wght@500&amp;family=Marck+Script&amp;display=swap" rel="stylesheet">
+<style>
+:root{--coal:#1E1A17;--esp:#44382F;--mocha:#645448;--stone:#87827C;--ash:#C1BCB6;--cream:#EBE4DB;--card:#F3EEE8;--car:#C9A27E}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--coal);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.bebas,h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em}
+.kicker{font-family:'Bebas Neue';letter-spacing:.16em;color:var(--mocha);font-size:15px}
+.script{font-family:'Great Vibes',cursive;color:var(--car);line-height:1}
+h2{font-size:clamp(34px,6vw,52px);line-height:1;margin-bottom:10px}
+h2 span{color:var(--car)}
+.sub{color:var(--mocha);margin-bottom:28px;max-width:640px}
+section{padding:72px 0}
+.btn{display:inline-block;background:var(--car);color:var(--coal);font-family:'Bebas Neue';font-size:22px;letter-spacing:.06em;padding:16px 30px;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{background:#d6b38f;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--ash);margin-left:10px}
+.btn.ghost:hover{background:rgba(235,228,219,.08)}
+
+/* HERO */
+.hero{background:var(--coal);color:var(--cream);padding:0;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;min-height:640px}
+.hero .txt{padding:80px 40px 70px 0;display:flex;flex-direction:column;justify-content:center}
+.hero .kicker{color:var(--ash)}
+.hero h1{font-size:clamp(52px,8vw,96px);line-height:.9;margin:14px 0 8px}
+.hero .script{font-size:clamp(30px,4vw,42px);margin-bottom:22px}
+.hero p{color:var(--ash);max-width:540px;margin-bottom:30px}
+.hero .ph{position:relative}
+.hero .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.hero .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--coal) 0%,rgba(30,26,23,0) 30%)}
+.stats{display:flex;gap:34px;margin-top:38px;flex-wrap:wrap}
+.stats div{font-size:14px;color:var(--ash)}
+.stats b{display:block;font-family:'Bebas Neue';font-weight:400;font-size:34px;color:var(--cream);line-height:1}
+
+/* PILLARS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pl{background:var(--card);border-top:3px solid var(--car);padding:24px 22px 26px;transition:transform .25s}
+.pl:hover{transform:translateY(-4px)}
+.pl .no{font-family:'Bebas Neue';color:var(--car);letter-spacing:.1em}
+.pl h3{font-size:26px;line-height:1.05;margin:4px 0 8px}
+.pl p{font-size:15px;color:var(--esp)}
+
+/* LISTS */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px 44px}
+.it{position:relative;padding-left:22px;font-size:16px}
+.it:before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:50%;background:var(--car)}
+.it b{font-weight:600}
+.dark{background:var(--esp);color:var(--cream)}
+.dark h2{color:var(--cream)}
+.dark .sub{color:var(--ash)}
+.dark .it{color:var(--ash)}
+.dark .it b{color:var(--cream)}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.how div{border-left:2px solid var(--car);padding:4px 0 4px 16px}
+.how h4{font-size:24px;line-height:1.05;margin-bottom:6px}
+.how p{font-size:15px;color:var(--esp)}
+
+/* MONTHS */
+.months{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.mh{border-bottom:2px solid var(--car);padding-bottom:8px;margin-bottom:18px}
+.mh .m{font-family:'Bebas Neue';color:var(--stone);letter-spacing:.14em}
+.mh h3{font-size:32px;line-height:1}
+.wk{margin-bottom:20px}
+.wk h4{font-size:22px;line-height:1.1}
+.wk h4 span{color:var(--car);margin-right:6px}
+.wk p{font-size:15px;color:var(--esp);margin-top:3px}
+
+/* PRICE */
+.price{background:var(--coal);color:var(--cream)}
+.price .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.price .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%}
+.price .big{font-family:'Bebas Neue';font-size:clamp(80px,12vw,130px);line-height:.9}
+.price .big span{color:var(--car)}
+.price .script{font-size:34px;margin:6px 0 18px}
+.price p{color:var(--ash);margin-bottom:14px;max-width:520px}
+.price p b{color:var(--cream);font-weight:600}
+.price ul{list-style:none;margin:20px 0 30px}
+.price li{color:var(--ash);padding:7px 0 7px 26px;position:relative;border-bottom:1px solid rgba(193,188,182,.18)}
+.price li:before{content:"✓";position:absolute;left:0;color:var(--car)}
+.small{font-size:13px;color:var(--stone);margin-top:16px}
+.small a{color:var(--ash)}
+footer{padding:30px 0 40px;font-size:13px;color:var(--mocha);text-align:center}
+footer a{color:var(--mocha)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* RUSŲ RAIDĖS: Bebas ir Great Vibes kirilicos neturi, todėl tik rusiškoms raidėms panašūs šriftai */
+html[lang=ru] h1,html[lang=ru] h2,html[lang=ru] h3,html[lang=ru] h4,html[lang=ru] .kicker,html[lang=ru] .btn,html[lang=ru] .chip,html[lang=ru] .marquee .track,html[lang=ru] .stats b,html[lang=ru] .pl .no,html[lang=ru] .mh .m,html[lang=ru] .bar .p{font-family:'Bebas Neue','Oswald',sans-serif;text-transform:uppercase}
+html[lang=ru] h1{font-size:clamp(44px,6.6vw,80px);line-height:1}
+html[lang=ru] h2{line-height:1.08}
+html[lang=ru] .btn{font-size:19px}
+html[lang=ru] .script{font-family:'Great Vibes','Marck Script',cursive}
+.hero .btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btns .btn.ghost{margin:0}
+/* KALBOS */
+.lang{position:fixed;top:14px;right:14px;z-index:60;display:flex;gap:2px;background:rgba(30,26,23,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(201,162,126,.45);padding:4px;border-radius:999px;opacity:0;animation:fadeUp .8s ease .4s forwards}
+.lang button{all:unset;cursor:pointer;font-family:'Bebas Neue';letter-spacing:.1em;font-size:15px;color:var(--ash);padding:6px 11px 5px;border-radius:999px;transition:background .25s,color .25s}
+.lang button:hover{color:var(--cream)}
+.lang button.on{background:var(--car);color:var(--coal)}
+.i18n-fade [data-i18n]{transition:opacity .25s}
+body.switching [data-i18n]{opacity:0}
+/* ===== ANIMACIJOS ===== */
+html,body{overflow-x:clip}
+.hero .ph{overflow:hidden}
+.hero .ph img{top:-6%;height:118%;object-position:50% 0%}
+.hero{position:relative}
+#dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero .grid{position:relative;z-index:1}
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(60%) rotate(4deg);filter:blur(6px);animation:wordIn .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes wordIn{to{opacity:1;transform:none;filter:none}}
+.hero .kicker,.hero .script,.hero p,.hero .btns,.hero .stats{opacity:0;animation:fadeUp .9s ease forwards}
+.hero .kicker{animation-delay:.1s}.hero .script{animation-delay:1.05s}.hero p{animation-delay:1.25s}.hero .btns{animation-delay:1.45s}.hero .stats{animation-delay:1.65s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero .ph img{transform:scale(1.12);animation:heroZoom 2.4s cubic-bezier(.2,.8,.2,1) forwards;will-change:transform}
+@keyframes heroZoom{to{transform:scale(1.02)}}
+.chip{position:absolute;z-index:2;background:rgba(30,26,23,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(201,162,126,.55);color:var(--cream);font-family:'Bebas Neue';letter-spacing:.08em;font-size:18px;padding:8px 14px;white-space:nowrap;opacity:0;animation:chipIn .8s cubic-bezier(.3,1.6,.5,1) forwards,floaty 6s ease-in-out infinite}
+.chip i{font-style:normal;color:var(--car);margin-right:6px}
+.chip.c1{top:5%;left:6%;animation-delay:1.6s,2.4s}
+.chip.c2{top:38%;right:5%;animation-delay:1.85s,2.6s}
+.chip.c3{bottom:26%;left:4%;animation-delay:2.1s,2.9s}
+.chip.c4{bottom:9%;right:9%;animation-delay:2.35s,3.1s}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) translateY(30px)}to{opacity:1;transform:none}}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -12px}}
+
+.marquee{background:var(--car);color:var(--coal);overflow:hidden;white-space:nowrap;padding:14px 0;transform:rotate(-1.2deg) scale(1.03);margin:-6px 0 10px;position:relative;z-index:2}
+.marquee .track{display:inline-block;animation:marq 32s linear infinite;font-family:'Bebas Neue';font-size:26px;letter-spacing:.08em}
+.marquee span{margin:0 22px}
+.marquee b{font-weight:400;color:var(--cream)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+.reveal{transition-delay:var(--d,0s)}
+.reveal.zoom{transform:scale(.88)}
+.reveal.left{transform:translateX(-40px)}
+.reveal.right{transform:translateX(40px)}
+.reveal.on{transform:none}
+.pl{transform-style:preserve-3d;will-change:transform}
+.pl .no{display:inline-block;transition:transform .5s cubic-bezier(.3,1.8,.5,1)}
+.pl.on .no{animation:pop .7s cubic-bezier(.3,1.8,.5,1) both;animation-delay:calc(var(--d,0s) + .3s)}
+.pl:hover .no{transform:scale(1.5) rotate(-8deg)}
+@keyframes pop{from{transform:scale(0) rotate(-30deg)}to{transform:none}}
+.it:before{transition:transform .4s}
+.it.on:before{animation:dot 1s ease calc(var(--d,0s) + .2s) both}
+@keyframes dot{0%{transform:scale(0)}60%{transform:scale(1.8)}100%{transform:scale(1)}}
+h2 span{background:linear-gradient(90deg,var(--car),#E6CBAE,var(--car));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+
+.months{position:relative}
+.rail{position:absolute;left:0;right:0;top:-14px;height:3px;background:rgba(201,162,126,.25)}
+.rail i{display:block;height:100%;width:0;background:var(--car);box-shadow:0 0 12px var(--car)}
+.wk h4 span{display:inline-block}
+.wk.on h4 span{animation:pop .6s cubic-bezier(.3,1.8,.5,1) both;animation-delay:calc(var(--d,0s) + .15s)}
+
+.btn.cta{position:relative;animation:glow 2.6s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(201,162,126,.55)}50%{box-shadow:0 0 0 14px rgba(201,162,126,0)}}
+.btn.cta:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);background-size:250% 100%;animation:sheen 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%{background-position:150% 0}60%,100%{background-position:-100% 0}}
+.price .ph{overflow:hidden}
+.price .ph img{transition:transform 1.2s ease}
+.price .ph:hover img{transform:scale(1.05)}
+.price .big{display:inline-block}
+.price li{opacity:0;transform:translateX(-14px);transition:all .5s ease}
+.price .on li{opacity:1;transform:none}
+.price .on li:nth-child(2){transition-delay:.12s}.price .on li:nth-child(3){transition-delay:.24s}.price .on li:nth-child(4){transition-delay:.36s}.price .on li:nth-child(5){transition-delay:.48s}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(30,26,23,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px calc(12px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.bar.show{transform:none}
+.bar .p{font-family:'Bebas Neue';color:var(--cream);font-size:26px;line-height:1}
+.bar .p small{display:block;font-family:Inter;font-size:11px;color:var(--ash);letter-spacing:0}
+.bar .btn{font-size:18px;padding:12px 18px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  .hero h1 .w,.hero .kicker,.hero .script,.hero p,.hero .btns,.hero .stats,.chip,.reveal,.price li{opacity:1!important;transform:none!important;filter:none!important}
+}
+
+@media (max-width:860px){
+  .bar{display:flex}
+  .hero .ph{margin:0 -22px}
+  .chip{font-size:15px;padding:6px 11px}
+  .chip.c1{top:4%;left:4%}.chip.c2{top:30%;right:4%}.chip.c3{bottom:30%;left:4%}.chip.c4{bottom:16%;right:4%}
+  .marquee .track{font-size:21px}
+  footer{padding-bottom:110px}
+  body{font-size:16px}
+  section{padding:56px 0}
+  .hero .grid{grid-template-columns:1fr;min-height:0}
+  .hero .ph{order:-1;height:62vh;min-height:380px}
+  .hero .ph:after{background:linear-gradient(0deg,var(--coal) 0%,rgba(30,26,23,0) 40%)}
+  .hero .txt{padding:10px 0 56px}
+  .pillars,.months,.how{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  .price .grid{grid-template-columns:1fr;gap:30px}
+  .btn.ghost{margin:12px 0 0}
+}
+</style>
+</head>
+<body>
+<nav class="lang" aria-label="Language"><button data-l="en">EN</button><button data-l="lt">LT</button><button data-l="ru">RU</button><button data-l="es">ES</button></nav>
+
+<header class="hero">
+  <canvas id="dust"></canvas>
+  <div class="wrap grid">
+    <div class="txt">
+      <div class="kicker" data-i18n="t1">Private mentorship · 12 weeks · one-to-one</div>
+      <h1 data-i18n="t2">Claude Code, social media and sales</h1>
+      <div class="script" data-i18n="t3">three months, personally with me</div>
+      <p data-i18n="t4">A twelve-week program for one person. Together we build your personal brand, engaging video content and a sales system that Claude Code supports every single day. You will learn to film and edit reels, tell stories people watch to the end, speak freely on camera and sell without pressure.</p>
+      <div class="btns">
+        <a class="btn cta" href="#" data-i18n="t5">DM me “MENTORSHIP”</a>
+        <a class="btn ghost" href="#journey" data-i18n="t6">See the 12 weeks</a>
+      </div>
+      <div class="stats">
+        <div><b data-count="12">0</b><span data-i18n="t7">weeks, one-to-one</span></div>
+        <div><b data-i18n="t124">Daily</b><span data-i18n="t8">WhatsApp support</span></div>
+        <div><b data-count="200" data-suffix="K+">0</b><span data-i18n="t9">people follow my work</span></div>
+      </div>
+    </div>
+    <div class="ph"><img src="img/kristina-1.jpg" alt="Kristina Meseguer">
+      <div class="chip c1"><i>●</i><span data-i18n="t10">Claude Code</span></div>
+      <div class="chip c2"><i>●</i><span data-i18n="t11">Reels</span></div>
+      <div class="chip c3"><i>●</i><span data-i18n="t12">Storytelling</span></div>
+      <div class="chip c4"><i>●</i><span data-i18n="t13">Sales</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"></div></div>
+
+<section>
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t14">Six areas <span>we bring together</span></h2>
+    <p class="sub reveal" data-i18n="t15">Every week you do concrete work, I review it, and the results show up on your profile and in your numbers.</p>
+    <div class="pillars">
+      <div class="pl reveal zoom"><div class="no">01</div><h3 data-i18n="t16">Claude Code and AI</h3><p data-i18n="t17">A personal AI assistant that writes your scripts, helps you edit, replies to people and keeps your books in order.</p></div>
+      <div class="pl reveal zoom"><div class="no">02</div><h3 data-i18n="t18">Video and social media</h3><p data-i18n="t19">Reel types, filming, editing, stories, carousels and a content plan built around series.</p></div>
+      <div class="pl reveal zoom"><div class="no">03</div><h3 data-i18n="t20">Marketing and sales</h3><p data-i18n="t21">Niche, positioning, your offer, a confident price, a client funnel and selling through conversation.</p></div>
+      <div class="pl reveal zoom"><div class="no">04</div><h3 data-i18n="t22">Storytelling</h3><p data-i18n="t23">Stories that hook from the first second, strong openings and endings that make people message you.</p></div>
+      <div class="pl reveal zoom"><div class="no">05</div><h3 data-i18n="t24">Yapping and public speaking</h3><p data-i18n="t25">Talking to camera without a script, naturally, with a voice even strangers trust.</p></div>
+      <div class="pl reveal zoom"><div class="no">06</div><h3 data-i18n="t26">Psychology</h3><p data-i18n="t27">The fear of filming and being judged, money beliefs, and how people actually decide to buy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t28">How we <span>work together</span></h2>
+    <p class="sub reveal" data-i18n="t29">Private, personal and every day. You never figure it out alone.</p>
+    <div class="how">
+      <div class="reveal"><h4 data-i18n="t30">A personal start</h4><p data-i18n="t31">From a detailed questionnaire I prepare your profile, your strategy and a twelve-week plan made just for you.</p></div>
+      <div class="reveal"><h4 data-i18n="t32">Daily on WhatsApp</h4><p data-i18n="t33">I reply every day by text and voice message, so no question is left unanswered.</p></div>
+      <div class="reveal"><h4 data-i18n="t34">Tasks and feedback</h4><p data-i18n="t35">Every week you get new material and tasks, and I personally review every piece of work you send.</p></div>
+      <div class="reveal"><h4 data-i18n="t36">Zoom when you need it</h4><p data-i18n="t37">We meet whenever we need to plan, review results or work on something together.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t38">What you learn <span>with Claude Code</span></h2>
+    <p class="sub reveal" data-i18n="t39">We start from zero, so no coding experience is needed.</p>
+    <div class="two">
+      <div class="it reveal" data-i18n="t40"><b>Setup.</b> Step by step you install VS Code and Claude Code on your own computer, Mac or Windows.</div>
+      <div class="it reveal" data-i18n="t41"><b>A Claude that knows you.</b> We build your profile so Claude knows your niche, clients and goals, and writes in your voice.</div>
+      <div class="it reveal" data-i18n="t42"><b>Scripts and copy.</b> Reel scripts, hooks, captions, stories and carousel text in a few minutes.</div>
+      <div class="it reveal" data-i18n="t43"><b>Skills.</b> You turn repeating tasks into a single command that is done equally well every time.</div>
+      <div class="it reveal" data-i18n="t44"><b>Finding viral videos.</b> Claude finds what works in your niche and explains why it worked.</div>
+      <div class="it reveal" data-i18n="t45"><b>ManyChat automation.</b> Someone comments a word under your video and instantly gets a gift, and you get their contact.</div>
+      <div class="it reveal" data-i18n="t46"><b>A free gift.</b> You create a PDF guide in your own style that brings in new clients.</div>
+      <div class="it reveal" data-i18n="t47"><b>Your website.</b> You launch your own page with a sign-up form through GitHub and Netlify, no developer needed.</div>
+      <div class="it reveal" data-i18n="t48"><b>Instagram and Gmail.</b> Claude reads your stats, spots what works and drafts your emails.</div>
+      <div class="it reveal" data-i18n="t49"><b>Jarvis, your assistant.</b> A morning summary, a daily plan and reminders of what to do first.</div>
+      <div class="it reveal" data-i18n="t50"><b>Bookkeeping.</b> Income and expenses sorted in half an hour a month, without spreadsheet chaos.</div>
+      <div class="it reveal" data-i18n="t51"><b>Your system.</b> All your tools connected in one folder that stays yours after the mentorship ends.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t52">Video, storytelling <span>and content</span></h2>
+    <p class="sub reveal" data-i18n="t53">Content that people watch to the end, save and act on.</p>
+    <div class="two">
+      <div class="it reveal" data-i18n="t54"><b>Reel types.</b> Entertaining, personal, expert and sales reels: when to post each one and how to mix them.</div>
+      <div class="it reveal" data-i18n="t55"><b>Filming on your phone.</b> Light, sound, framing and how to look natural on camera without tension.</div>
+      <div class="it reveal" data-i18n="t56"><b>Editing.</b> Captions, effects, transitions and music in the Xclusiv Edits app in minutes, not hours.</div>
+      <div class="it reveal" data-i18n="t57"><b>Storytelling.</b> A story structure that holds attention to the end, plus your own bank of personal stories.</div>
+      <div class="it reveal" data-i18n="t58"><b>Hooks.</b> The first three seconds that stop the scroll and make people keep watching.</div>
+      <div class="it reveal" data-i18n="t59"><b>Stories and carousels.</b> Daily stories that build connection and sell, and carousels people save.</div>
+      <div class="it reveal" data-i18n="t60"><b>Content plan.</b> A monthly plan with series, so you always know what to film tomorrow.</div>
+      <div class="it reveal" data-i18n="t61"><b>Speaking without a script.</b> Yapping exercises so you speak freely and sound like yourself in every video.</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t62">Gifts <span>and bonuses</span></h2>
+    <p class="sub reveal" data-i18n="t63">All included in the mentorship.</p>
+    <div class="two">
+      <div class="it reveal" data-i18n="t64"><b>The Xclusiv Edits app as a gift.</b> A video editing app for your computer, normally sold separately.</div>
+      <div class="it reveal" data-i18n="t65"><b>The “How to Start Filming” course.</b> Everything about your first steps in front of the camera.</div>
+      <div class="it reveal" data-i18n="t66"><b>200 hooks.</b> Ready-made opening lines for reels, sorted by type.</div>
+      <div class="it reveal" data-i18n="t67"><b>Guides and ready prompts.</b> A detailed guide for every topic and Claude skills you can use right away.</div>
+      <div class="it reveal" data-i18n="t68"><b>Visibility to my audience.</b> I feature your progress on my social media, where over 200,000 people follow me.</div>
+      <div class="it reveal" data-i18n="t69"><b>A plan for the next three months.</b> A personal follow-up plan, so you know how to keep growing afterwards.</div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t70">Your twelve-week <span>journey</span></h2>
+    <p class="sub reveal" data-i18n="t71">Three months, three stages. Each week builds on the one before.</p>
+    <div class="months">
+      <div class="rail"><i></i></div>
+      <div class="reveal">
+        <div class="mh"><div class="m" data-i18n="t72">Month 1</div><h3 data-i18n="t73">Foundations</h3></div>
+        <div class="wk reveal"><h4><span>1</span><span class="t" data-i18n="t74">Strategy and Claude Code</span></h4><p data-i18n="t75">We set three clear goals with numbers and install Claude Code and Xclusiv Edits. In week one your assistant is already working and your first video is edited.</p></div>
+        <div class="wk reveal"><h4><span>2</span><span class="t" data-i18n="t76">Niche and positioning</span></h4><p data-i18n="t77">We define who you are talking to, what people really buy from you and why they should choose you.</p></div>
+        <div class="wk reveal"><h4><span>3</span><span class="t" data-i18n="t78">Profile and style</span></h4><p data-i18n="t79">A profile that tells people in three seconds who you are and who you help, with your colors, fonts and first posts planned.</p></div>
+        <div class="wk reveal"><h4><span>4</span><span class="t" data-i18n="t80">Confidence on camera</span></h4><p data-i18n="t81">We find out what really stops you from filming and build a habit of talking to camera every day.</p></div>
+      </div>
+      <div class="reveal">
+        <div class="mh"><div class="m" data-i18n="t82">Month 2</div><h3 data-i18n="t83">Content and voice</h3></div>
+        <div class="wk reveal"><h4><span>5</span><span class="t" data-i18n="t84">Storytelling and yapping</span></h4><p data-i18n="t85">You learn to tell stories people watch to the end and to talk to camera without a script. You build a story bank and your hooks.</p></div>
+        <div class="wk reveal"><h4><span>6</span><span class="t" data-i18n="t86">Reels: types, filming, editing</span></h4><p data-i18n="t87">We go through reel types, film and edit in Xclusiv Edits, and put together a monthly plan with series.</p></div>
+        <div class="wk reveal"><h4><span>7</span><span class="t" data-i18n="t88">Offer and price</span></h4><p data-i18n="t89">We create an offer that is easy to buy and a price you believe in, plus a free gift and stories that build trust.</p></div>
+        <div class="wk reveal"><h4><span>8</span><span class="t" data-i18n="t90">Automation</span></h4><p data-i18n="t91">We launch ManyChat and your website: someone comments a word under your video, instantly gets a gift, and you get a new contact.</p></div>
+      </div>
+      <div class="reveal">
+        <div class="mh"><div class="m" data-i18n="t92">Month 3</div><h3 data-i18n="t93">Sales and systems</h3></div>
+        <div class="wk reveal"><h4><span>9</span><span class="t" data-i18n="t94">Your first launch</span></h4><p data-i18n="t95">A seven-day sales plan across reels, stories and DMs. You learn to sell through conversation, calmly and without pressure.</p></div>
+        <div class="wk reveal"><h4><span>10</span><span class="t" data-i18n="t96">Analysis and a second wave</span></h4><p data-i18n="t97">We read your numbers, find where people drop off, fix it and launch again.</p></div>
+        <div class="wk reveal"><h4><span>11</span><span class="t" data-i18n="t98">Your AI system</span></h4><p data-i18n="t99">You hand repeating work over to Claude: scripts, replies, bookkeeping. Your assistant Jarvis works alongside you.</p></div>
+        <div class="wk reveal"><h4><span>12</span><span class="t" data-i18n="t100">Results and next steps</span></h4><p data-i18n="t101">We compare where you started and where you are now, in numbers, and map out a clear plan for the next three months.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal" data-i18n="t102">After twelve weeks <span>you will have</span></h2>
+    <p class="sub reveal" data-i18n="t103">Not more information, but things that actually work for you.</p>
+    <div class="two">
+      <div class="it reveal" data-i18n="t104">A clear niche, a strong offer and a price you can say out loud with confidence.</div>
+      <div class="it reveal" data-i18n="t105">A profile that builds trust and a content plan built around series.</div>
+      <div class="it reveal" data-i18n="t106">A habit of filming and talking to camera freely, naturally and without stress.</div>
+      <div class="it reveal" data-i18n="t107">The skill to edit an engaging reel yourself in a few minutes.</div>
+      <div class="it reveal" data-i18n="t108">Working automation: ManyChat, a free gift and a website with a sign-up form.</div>
+      <div class="it reveal" data-i18n="t109">Your own Claude system that saves you hours of work every day.</div>
+      <div class="it reveal" data-i18n="t110">A tested sales process, from video to conversation in your DMs.</div>
+      <div class="it reveal" data-i18n="t111">A clear plan to keep growing on your own.</div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="wrap grid">
+    <div class="ph reveal left"><img src="img/kristina-2.jpg" alt="Kristina Meseguer"></div>
+    <div class="reveal right">
+      <h2 style="color:var(--cream)" data-i18n="t112">One more free tip <span>won't change anything</span></h2>
+      <p data-i18n="t113">Change comes from a clear system, daily support and someone who won't let you stop halfway. This mentorship works whether you already run a business or are still looking for your direction.</p>
+      <div class="big" id="bigprice" style="margin-top:26px"></div>
+      <div class="script" data-i18n="t114">for all three months</div>
+      <ul>
+        <li data-i18n="t115">Twelve weeks, private and one-to-one</li>
+        <li data-i18n="t116">Daily WhatsApp support and weekly feedback</li>
+        <li data-i18n="t117">Zoom calls whenever you need them</li>
+        <li data-i18n="t118">Every bonus included, with the Xclusiv Edits app as a gift</li>
+        <li data-i18n="t119">A start date that suits you</li>
+      </ul>
+      <p data-i18n="t120"><b>If you do the work for these three months, you will see it in your numbers.</b></p>
+      <a class="btn cta" href="#" data-i18n="t5">DM me “MENTORSHIP”</a>
+      <p class="small" data-i18n="t121">Spots are limited, because each person gets my time every day. · <a href="program.pdf" target="_blank">Download the program (PDF)</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="bar" id="bar"><div class="p"><span id="barprice">€1,500</span><small data-i18n="t122">12 weeks, one-to-one</small></div><a class="btn cta" href="#" data-i18n="t5">DM me “MENTORSHIP”</a></div>
+
+<footer data-i18n="t123">Kristina Meseguer · Private mentorship</footer>
+
+<script src="vertimai.js"></script>
+<script>
+// Instagram profilis, į kurį veda mygtukai (pakeisti, kai bus žinomas angliško profilio vardas)
+const IG = 'kristina_meseguer';
+document.querySelectorAll('.cta').forEach(a => { a.href = 'https://ig.me/m/' + IG; a.target = '_blank'; a.rel = 'noopener'; });
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// 1. Antraštė: žodžiai iššoka po vieną
+// ===== KALBOS =====
+I18N.en = {"t1": "Private mentorship · 12 weeks · one-to-one", "t2": "Claude Code, social media and sales", "t3": "three months, personally with me", "t4": "A twelve-week program for one person. Together we build your personal brand, engaging video content and a sales system that Claude Code supports every single day. You will learn to film and edit reels, tell stories people watch to the end, speak freely on camera and sell without pressure.", "t5": "DM me “MENTORSHIP”", "t6": "See the 12 weeks", "t7": "weeks, one-to-one", "t8": "WhatsApp support", "t9": "people follow my work", "t10": "Claude Code", "t11": "Reels", "t12": "Storytelling", "t13": "Sales", "t14": "Six areas <span>we bring together</span>", "t15": "Every week you do concrete work, I review it, and the results show up on your profile and in your numbers.", "t16": "Claude Code and AI", "t17": "A personal AI assistant that writes your scripts, helps you edit, replies to people and keeps your books in order.", "t18": "Video and social media", "t19": "Reel types, filming, editing, stories, carousels and a content plan built around series.", "t20": "Marketing and sales", "t21": "Niche, positioning, your offer, a confident price, a client funnel and selling through conversation.", "t22": "Storytelling", "t23": "Stories that hook from the first second, strong openings and endings that make people message you.", "t24": "Yapping and public speaking", "t25": "Talking to camera without a script, naturally, with a voice even strangers trust.", "t26": "Psychology", "t27": "The fear of filming and being judged, money beliefs, and how people actually decide to buy.", "t28": "How we <span>work together</span>", "t29": "Private, personal and every day. You never figure it out alone.", "t30": "A personal start", "t31": "From a detailed questionnaire I prepare your profile, your strategy and a twelve-week plan made just for you.", "t32": "Daily on WhatsApp", "t33": "I reply every day by text and voice message, so no question is left unanswered.", "t34": "Tasks and feedback", "t35": "Every week you get new material and tasks, and I personally review every piece of work you send.", "t36": "Zoom when you need it", "t37": "We meet whenever we need to plan, review results or work on something together.", "t38": "What you learn <span>with Claude Code</span>", "t39": "We start from zero, so no coding experience is needed.", "t40": "<b>Setup.</b> Step by step you install VS Code and Claude Code on your own computer, Mac or Windows.", "t41": "<b>A Claude that knows you.</b> We build your profile so Claude knows your niche, clients and goals, and writes in your voice.", "t42": "<b>Scripts and copy.</b> Reel scripts, hooks, captions, stories and carousel text in a few minutes.", "t43": "<b>Skills.</b> You turn repeating tasks into a single command that is done equally well every time.", "t44": "<b>Finding viral videos.</b> Claude finds what works in your niche and explains why it worked.", "t45": "<b>ManyChat automation.</b> Someone comments a word under your video and instantly gets a gift, and you get their contact.", "t46": "<b>A free gift.</b> You create a PDF guide in your own style that brings in new clients.", "t47": "<b>Your website.</b> You launch your own page with a sign-up form through GitHub and Netlify, no developer needed.", "t48": "<b>Instagram and Gmail.</b> Claude reads your stats, spots what works and drafts your emails.", "t49": "<b>Jarvis, your assistant.</b> A morning summary, a daily plan and reminders of what to do first.", "t50": "<b>Bookkeeping.</b> Income and expenses sorted in half an hour a month, without spreadsheet chaos.", "t51": "<b>Your system.</b> All your tools connected in one folder that stays yours after the mentorship ends.", "t52": "Video, storytelling <span>and content</span>", "t53": "Content that people watch to the end, save and act on.", "t54": "<b>Reel types.</b> Entertaining, personal, expert and sales reels: when to post each one and how to mix them.", "t55": "<b>Filming on your phone.</b> Light, sound, framing and how to look natural on camera without tension.", "t56": "<b>Editing.</b> Captions, effects, transitions and music in the Xclusiv Edits app in minutes, not hours.", "t57": "<b>Storytelling.</b> A story structure that holds attention to the end, plus your own bank of personal stories.", "t58": "<b>Hooks.</b> The first three seconds that stop the scroll and make people keep watching.", "t59": "<b>Stories and carousels.</b> Daily stories that build connection and sell, and carousels people save.", "t60": "<b>Content plan.</b> A monthly plan with series, so you always know what to film tomorrow.", "t61": "<b>Speaking without a script.</b> Yapping exercises so you speak freely and sound like yourself in every video.", "t62": "Gifts <span>and bonuses</span>", "t63": "All included in the mentorship.", "t64": "<b>The Xclusiv Edits app as a gift.</b> A video editing app for your computer, normally sold separately.", "t65": "<b>The “How to Start Filming” course.</b> Everything about your first steps in front of the camera.", "t66": "<b>200 hooks.</b> Ready-made opening lines for reels, sorted by type.", "t67": "<b>Guides and ready prompts.</b> A detailed guide for every topic and Claude skills you can use right away.", "t68": "<b>Visibility to my audience.</b> I feature your progress on my social media, where over 200,000 people follow me.", "t69": "<b>A plan for the next three months.</b> A personal follow-up plan, so you know how to keep growing afterwards.", "t70": "Your twelve-week <span>journey</span>", "t71": "Three months, three stages. Each week builds on the one before.", "t72": "Month 1", "t73": "Foundations", "t74": "Strategy and Claude Code", "t75": "We set three clear goals with numbers and install Claude Code and Xclusiv Edits. In week one your assistant is already working and your first video is edited.", "t76": "Niche and positioning", "t77": "We define who you are talking to, what people really buy from you and why they should choose you.", "t78": "Profile and style", "t79": "A profile that tells people in three seconds who you are and who you help, with your colors, fonts and first posts planned.", "t80": "Confidence on camera", "t81": "We find out what really stops you from filming and build a habit of talking to camera every day.", "t82": "Month 2", "t83": "Content and voice", "t84": "Storytelling and yapping", "t85": "You learn to tell stories people watch to the end and to talk to camera without a script. You build a story bank and your hooks.", "t86": "Reels: types, filming, editing", "t87": "We go through reel types, film and edit in Xclusiv Edits, and put together a monthly plan with series.", "t88": "Offer and price", "t89": "We create an offer that is easy to buy and a price you believe in, plus a free gift and stories that build trust.", "t90": "Automation", "t91": "We launch ManyChat and your website: someone comments a word under your video, instantly gets a gift, and you get a new contact.", "t92": "Month 3", "t93": "Sales and systems", "t94": "Your first launch", "t95": "A seven-day sales plan across reels, stories and DMs. You learn to sell through conversation, calmly and without pressure.", "t96": "Analysis and a second wave", "t97": "We read your numbers, find where people drop off, fix it and launch again.", "t98": "Your AI system", "t99": "You hand repeating work over to Claude: scripts, replies, bookkeeping. Your assistant Jarvis works alongside you.", "t100": "Results and next steps", "t101": "We compare where you started and where you are now, in numbers, and map out a clear plan for the next three months.", "t102": "After twelve weeks <span>you will have</span>", "t103": "Not more information, but things that actually work for you.", "t104": "A clear niche, a strong offer and a price you can say out loud with confidence.", "t105": "A profile that builds trust and a content plan built around series.", "t106": "A habit of filming and talking to camera freely, naturally and without stress.", "t107": "The skill to edit an engaging reel yourself in a few minutes.", "t108": "Working automation: ManyChat, a free gift and a website with a sign-up form.", "t109": "Your own Claude system that saves you hours of work every day.", "t110": "A tested sales process, from video to conversation in your DMs.", "t111": "A clear plan to keep growing on your own.", "t112": "One more free tip <span>won't change anything</span>", "t113": "Change comes from a clear system, daily support and someone who won't let you stop halfway. This mentorship works whether you already run a business or are still looking for your direction.", "t114": "for all three months", "t115": "Twelve weeks, private and one-to-one", "t116": "Daily WhatsApp support and weekly feedback", "t117": "Zoom calls whenever you need them", "t118": "Every bonus included, with the Xclusiv Edits app as a gift", "t119": "A start date that suits you", "t120": "<b>If you do the work for these three months, you will see it in your numbers.</b>", "t121": "Spots are limited, because each person gets my time every day. · <a href=\"program.pdf\" target=\"_blank\">Download the program (PDF)</a>", "t122": "12 weeks, one-to-one", "t123": "Kristina Meseguer · Private mentorship", "title": "Private Mentorship · Claude Code, Social Media and Sales · Kristina Meseguer", "desc": "A twelve-week private mentorship: Claude Code, video and social media, storytelling, public speaking, marketing and sales. One-to-one with Kristina Meseguer.", "marq": ["Claude Code", "Reels", "Storytelling", "Yapping", "Public speaking", "ManyChat", "Marketing", "Sales", "Psychology"], "t124": "Daily", "kw": "MENTORSHIP"};
+const LANGS = ['en','lt','ru','es'];
+const PRICE = { en: ['€','1,500',''], lt: ['','1 500',' €'], ru: ['','1 500',' €'], es: ['','1.500',' €'] };
+const h1 = document.querySelector('.hero h1');
+let LANG;
+function splitH1(text, animate){
+  h1.innerHTML = text.split(/\s+/).map((w,i) => `<span class="w" style="animation-delay:${animate ? .25+i*.12 : 0}s${animate ? '' : ';animation-duration:.5s'}">${w}</span>`).join(' ');
+}
+function setLang(l, first){
+  if (!LANGS.includes(l)) l = 'en';
+  LANG = l; const d = I18N[l];
+  document.documentElement.lang = l;
+  document.title = d.title; document.querySelector('meta[name=description]').content = d.desc;
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (d[k] != null && el !== h1) el.innerHTML = d[k]; });
+  splitH1(d.t2, first);
+  const m = d.marq.map(w => `<span>${w}</span><b>●</b>`).join('');
+  document.querySelector('.marquee .track').innerHTML = m + m + m + m;
+  const p = PRICE[l], big = document.getElementById('bigprice'), done = big.dataset.done;
+  big.innerHTML = (p[0] ? `<span>${p[0]}</span>` : '') + `<b style="font-weight:400" data-target="${p[1]}">${done ? p[1] : '0'}</b>` + (p[2] ? `<span>${p[2]}</span>` : '');
+  document.getElementById('barprice').textContent = p[0] + p[1] + p[2];
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.l === l));
+  try { localStorage.setItem('km_lang', l); } catch(e) {}
+  const u = new URL(location); u.searchParams.set('lang', l); history.replaceState(null, '', u);
+}
+const q = new URLSearchParams(location.search).get('lang');
+let saved = null; try { saved = localStorage.getItem('km_lang'); } catch(e) {}
+const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+setLang(q || saved || (LANGS.includes(nav) ? nav : 'en'), true);
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
+  if (b.dataset.l === LANG) return;
+  document.body.classList.add('i18n-fade','switching');
+  setTimeout(() => { setLang(b.dataset.l, false); document.body.classList.remove('switching'); }, 230);
+}));
+
+// 2. Pasirodymas slenkant, su laipteliu tarp kaimynų
+document.querySelectorAll('.reveal').forEach(el => {
+  const sib = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+  el.style.setProperty('--d', (Math.max(0, sib.indexOf(el)) % 6) * .09 + 's');
+});
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('on'); io.unobserve(e.target);
+  e.target.querySelectorAll('[data-count]').forEach(count);
+  if (e.target.querySelector('#bigprice')) countPrice();
+}), { threshold: .14 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// 3. Skaičiai skaičiuoja
+function countPrice(){
+  const big = document.getElementById('bigprice'); if (big.dataset.done) return; big.dataset.done = 1;
+  const t0 = performance.now(), dur = 1600;
+  (function step(t){ const k = Math.min(1,(t-t0)/dur), v = Math.round(1500*(1-Math.pow(1-k,3))), el = big.querySelector('b');
+    const sep = {en:',',lt:' ',ru:' ',es:'.'}[LANG], s = v >= 1000 ? Math.floor(v/1000) + sep + String(v%1000).padStart(3,'0') : String(v);
+    el.textContent = calm ? el.dataset.target : s; if (k < 1 && !calm) requestAnimationFrame(step); })(t0);
+}
+function count(el){
+  if (el.dataset.done) return; el.dataset.done = 1;
+  const to = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now(), dur = 1600;
+  const fmt = n => el.dataset.comma ? n.toLocaleString('en-US') : n;
+  if (calm) { el.textContent = fmt(to) + suf; return; }
+  (function step(t){ const k = Math.min(1,(t-t0)/dur), v = Math.round(to*(1-Math.pow(1-k,3)));
+    el.textContent = fmt(v) + suf; if (k < 1) requestAnimationFrame(step); })(t0);
+}
+setTimeout(() => document.querySelectorAll('.hero [data-count]').forEach(count), 1700);
+
+// 4. Kortelės pakrypsta paskui pelę
+if (matchMedia('(hover:hover)').matches && !calm) document.querySelectorAll('.pl').forEach(c => {
+  c.addEventListener('mousemove', e => { const r = c.getBoundingClientRect(), x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5;
+    c.style.transition = 'transform .08s'; c.style.transform = `perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-4px)`; });
+  c.addEventListener('mouseleave', () => { c.style.transition = 'transform .5s'; c.style.transform = ''; });
+});
+
+// 5. Slinkimas: nuotraukos paralaksas, 12 savaičių linija, apatinė juosta telefone
+const heroImg = document.querySelector('.hero .ph img'), rail = document.querySelector('.rail i'),
+      months = document.querySelector('.months'), bar = document.getElementById('bar'), price = document.getElementById('price');
+function onScroll(){
+  const y = scrollY, vh = innerHeight;
+  if (!calm && y < vh*1.2) heroImg.style.translate = `0 ${Math.min(y*.15, 90)}px`;
+  const r = months.getBoundingClientRect(), k = Math.min(1, Math.max(0, (vh*.85 - r.top) / (r.height*.9)));
+  rail.style.width = (k*100) + '%';
+  const pr = price.getBoundingClientRect();
+  bar.classList.toggle('show', y > vh*.9 && !(pr.top < vh && pr.bottom > 0));
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+// 6. Skraidančios karamelinės dalelės viršuje
+const cv = document.getElementById('dust'), cx = cv.getContext('2d'); let P = [], W, H;
+function size(){ const r = cv.parentElement.getBoundingClientRect(); W = cv.width = r.width*devicePixelRatio; H = cv.height = r.height*devicePixelRatio; }
+size(); addEventListener('resize', size);
+for (let i = 0; i < 55; i++) P.push({ x: Math.random(), y: Math.random(), r: .6+Math.random()*2.2, s: .0004+Math.random()*.0012, a: .15+Math.random()*.5, w: Math.random()*6.28 });
+(function draw(){
+  cx.clearRect(0,0,W,H);
+  for (const p of P){ p.y -= p.s; p.w += .01; if (p.y < -.02){ p.y = 1.02; p.x = Math.random(); }
+    const x = (p.x + Math.sin(p.w)*.012)*W, y = p.y*H;
+    cx.beginPath(); cx.arc(x, y, p.r*devicePixelRatio, 0, 6.28);
+    cx.fillStyle = `rgba(201,162,126,${p.a})`; cx.shadowColor = 'rgba(201,162,126,.8)'; cx.shadowBlur = 8*devicePixelRatio; cx.fill(); }
+  if (!calm) requestAnimationFrame(draw);
+})();
+</script>
+
+
+</body></html>
